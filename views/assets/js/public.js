@@ -72,34 +72,34 @@ function getUnit() {
 
 
 function openFirst(type, id) {
-
-    var $span = $('.introduce .nav  .right span');
-
-    getSecond(type, id);//如果这个type值跟上一次的type是一样的，那么这个方法就不会执行
-
-    if (!flag) {
-        for (var j = 0; j < $span.length; j++) {
-            if (type == j) {
-                $(".menu").eq(type).css({"display": "block"});
-                $span.eq(type).removeClass("icon-youjiantou iconfont").addClass("icon-youjiantou-copy iconfont");
-            } else {
-                bg = 0;
-            }
-        }
-        flag = true;
-
-    } else {
-        for (var i = 0; i < $span.length; i++) {
-            if (i == type) {
-                $(".menu").eq(type).css({"display": "none"});
-                $span.eq(type).removeClass("icon-youjiantou-copy iconfont").addClass("icon-youjiantou iconfont");
-            } else {
-
-            }
-        }
-
-        flag = !flag;
-    }
+    //
+    // var $span = $('.introduce .nav  .right span');
+    //
+    // getSecond(type, id);//如果这个type值跟上一次的type是一样的，那么这个方法就不会执行
+    //
+    // if (!flag) {
+    //     for (var j = 0; j < $span.length; j++) {
+    //         if (type == j) {
+    //             $(".menu").eq(type).css({"display": "block"});
+    //             $span.eq(type).removeClass("icon-youjiantou iconfont").addClass("icon-youjiantou-copy iconfont");
+    //         } else {
+    //             bg = 0;
+    //         }
+    //     }
+    //     flag = true;
+    //
+    // } else {
+    //     for (var i = 0; i < $span.length; i++) {
+    //         if (i == type) {
+    //             $(".menu").eq(type).css({"display": "none"});
+    //             $span.eq(type).removeClass("icon-youjiantou-copy iconfont").addClass("icon-youjiantou iconfont");
+    //         } else {
+    //
+    //         }
+    //     }
+    //
+    //     flag = !flag;
+    // }
 
 }
 
@@ -218,32 +218,6 @@ function logout() {
         }
     })
 }
-
-
-// 通过权限获取
-// function getLimitLists(type,id) {
-//     var obj = readData("USER_KEY");
-//     var user = obj.name;
-//     var token = obj.token;
-//     var data = {
-//         user: user,
-//         token: token,
-//         role_id:id
-//     };
-//     $.ajax({
-//         url: "/getRoleAction",
-//         type: "POST",
-//         success: function (result) {
-//
-//         }
-//     })
-// }
-
-
-
-
-
-
 
 /*这个是表头权限*/
 //获取展示的权限
