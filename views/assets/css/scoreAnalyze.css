@@ -1,0 +1,57 @@
+.container .footer_content .rater{
+    margin-bottom:20px;
+    border-bottom:1px solid #f3f3f5;
+}
+
+.container .footer_content .rater .person_train {
+    width:900px;
+    height:100px;
+    margin:0 auto;
+    text-align: center;
+}
+
+.container .footer_content .rater .person_train div{
+    display: inline-block;
+}
+
+.container .footer_content .rater .person_train div span{
+    display: inline-block;
+}
+
+.container .footer_content .rater .person_train .person_info{
+    margin-left:28px;
+}
+
+.container .footer_content .rater .person_train div .num{
+    color:#d4d4d4;
+}
+
+.container .footer_content .rater .person_train  .info_left{
+    margin-right:30px;
+}
+
+.container .footer_content .rater .person_train  .info_right{
+    margin-left:30px;
+}
+
+.container .footer_content .person_ana{
+    padding:10px 10px 20px 20px;
+    margin:auto;
+    width:900px;
+    height:300px;
+    background:#fff;
+    border:1px solid #d4d4d4;
+    box-shadow: 2px 1px 5px #888888;
+    border-radius:5px;
+    color:#4ea1e9;
+}
+
+.container .footer_content .person_ana .chart{
+    display:block;
+    margin-bottom:20px;
+}
+
+#someChart{
+    width:100%;
+    height:100%;
+}

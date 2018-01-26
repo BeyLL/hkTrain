@@ -1,0 +1,206 @@
+body {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .row {
+    height: 100%;
+}
+
+.container .row .col-md-2 {
+    height: 100%;
+}
+
+.container .row .col-md-10 {
+    height: 100%;
+}
+
+.container .introduce {
+    width: 100%;
+    height: 100%;
+    background: #16578d
+}
+
+.container .introduce ul {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.container .introduce li {
+    padding: 5px 10px 5px 30px;
+}
+
+.container .introduce .foot {
+    width: 100%;
+    height: 42px;
+    background: #1c5e9b;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container .introduce .left, .right {
+    display: inline-block;
+}
+
+.container .introduce .left img, span {
+    display: inline-block;
+}
+
+.container .introduce .left span {
+    margin-left: 20px;
+}
+
+.container .introduce .right {
+    float: right;
+    font-weight: normal;
+}
+
+.container .detail {
+    width: 100%;
+    height: 100%;
+    background: #f3f3f5;
+}
+
+.container .detail_header {
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eeeef0;
+    background: #fff;
+}
+
+.container .header_list {
+    height: 100%;
+    margin: 0 30px 0 20px;
+}
+
+.container .header_list .detail_left {
+    float: left;
+    height: 100%;
+}
+
+.container .detail_left .choice {
+    margin-bottom: 0;
+    height: 41px;
+}
+
+.container .detail_left .choice li {
+    display: inline-block;
+    margin-right: 20px;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+}
+
+.container .default {
+    color: #1c5e9b;
+    border-bottom: 1px solid #1c5e9b;
+}
+
+.container .header_list .detail_right {
+    float: right;
+}
+
+.container .header_list .login_left, .login_right {
+    display: inline-block;
+}
+
+.container .detail_right .login_right {
+    margin-left: 20px;
+}
+
+.container .detail .detail_footer {
+    width: 100%;
+    height: 100%;
+}
+
+.container .detail .detail_footer .footer_content {
+    position: relative;
+    margin: 10px 25px 30px 10px;
+    height: 83%;
+    background: #fff;
+}
+
+.container .detail .detail_footer .query {
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.container .detail .detail_footer .query .query_left, .query_right {
+    display: inline-block;
+}
+
+.container .detail .detail_footer .query .query_right .input-group {
+    width: 300px;
+}
+
+.query .query_left {
+    float: left;
+}
+
+.query .query_right {
+    float: right;
+}
+
+.footer_content .design {
+    position: relative;
+    padding: 0 10px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.footer_content .design .nav {
+    /*float:left;*/
+}
+
+.footer_content .design .but {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    /*float:right;*/
+}
+
+.footer_content .design .but span {
+    display: inline-block;
+    width: 75px;
+    height: 25px;
+    line-height: 24px;
+}
+
+.footer_content .personList {
+    padding: 10px 10px;
+}
+
+.footer_content .personList .table tr th, tr td {
+    text-align: center;
+    font-weight: normal;
+}
+
+.footer_content .bom nav {
+    display: inline-block;
+}
+
+.footer_content .bom nav .pagination {
+    margin: 0;
+}
+
+.footer_content .bom {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.footer_content .bom div {
+    display: inline-block;
+}

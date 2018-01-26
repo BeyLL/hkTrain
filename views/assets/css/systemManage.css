@@ -1,0 +1,32 @@
+.container .footer_content .system{
+    width:800px;
+    height:400px;
+    margin:10px auto;
+}
+
+.container .footer_content .system .table-bordered tr th{
+    text-align: center;
+    font-weight: 100;
+}
+
+.container .footer_content .system .table-bordered tr td{
+    border-top:transparent !important;
+    border-bottom:transparent !important;
+    border-left:1px dashed #fff !important;
+}
+
+.container .footer_content .system .table-bordered tr th{
+    border:1px dashed #eeeef0;
+}
+
+.container .footer_content .system .table-bordered tr th:first-child{
+    border:1px solid #eeeef0;
+}
+
+.container .footer_content .system .table-bordered tr td{
+    border:1px dashed #eeeef0;
+}
+
+.container .footer_content .system .table-bordered tr td:first-child{
+    border:1px solid #eeeef0;
+}
