@@ -85,14 +85,22 @@
 <script>
 
     //获取存储在cookie中的用户信息
-    if($.cookie("password")!='null'&&$.cookie("password")!=''&&$.cookie("unit")!='null'&&$.cookie("unit")!=""){
+
+//    if(!$("#rem").attr("checked")){
+//        $("#ipt").val($.cookie("unit"));
+//        $("#show_pass").val("")
+//    }
+    if($.cookie("password")!='null'&&$.cookie("password")!=''&&$.cookie("unit")!='null'&&$.cookie("unit")!=""&&$("#rem")){
         $("#ipt").val($.cookie("unit"));
         $("#show_pass").val($.cookie("password"));
-        $("#rem").attr("checked",true);
     }else if($.cookie("unit")!='null'&&$.cookie("unit")!=""){
         $("#ipt").val($.cookie("unit"));
         $("#show_pass").val("");
+        $("#rem").attr("checked",false)
     }
+
+
+
 
     getunit();
     function getunit() {
@@ -126,7 +134,7 @@
 
     var $as = $("#unit a"), $input = $("#ipt");
     $as.click(function () {
-        $this = $(this);
+      var   $this = $(this);
         $input.attr("placeholder", $this.html());
         $input.val($this.html())
 
@@ -137,13 +145,14 @@
 
         var store = {
             unit:$("#ipt").val(),
-            password:$('#show_pass').val
-
+            password:$('#show_pass').val()
         };
         if($("#rem").prop("checked")){
             $.cookie("unit",store.unit,{expires:1});
             $.cookie("password",store.password,{expires:1});
-
+        }else {
+            $.cookie("unit",store.unit,{expires:1});
+            $.cookie("password",null)
         }
         var data = {};
         data.role_id = 2;
