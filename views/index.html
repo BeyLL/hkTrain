@@ -86,11 +86,7 @@
 
     //获取存储在cookie中的用户信息
 
-//    if(!$("#rem").attr("checked")){
-//        $("#ipt").val($.cookie("unit"));
-//        $("#show_pass").val("")
-//    }
-    if($.cookie("password")!='null'&&$.cookie("password")!=''&&$.cookie("unit")!='null'&&$.cookie("unit")!=""&&$("#rem")){
+    if($.cookie("password")!='null'&&$.cookie("password")!=''&&$.cookie("unit")!='null'&&$.cookie("unit")!=""){
         $("#ipt").val($.cookie("unit"));
         $("#show_pass").val($.cookie("password"));
     }else if($.cookie("unit")!='null'&&$.cookie("unit")!=""){
@@ -98,10 +94,6 @@
         $("#show_pass").val("");
         $("#rem").attr("checked",false)
     }
-
-
-
-
     getunit();
     function getunit() {
         $.ajax({
