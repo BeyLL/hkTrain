@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>单位管理</title>
+    <title>系统管理</title>
     <link rel="stylesheet" href="assets/css/reset.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fontSize/iconfont.css">
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/js/alert/window.css">
     <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="assets/js/localStorageUtils.js"></script>
-    <script type="text/javascript" src="assets/js/public.js"></script>
     <script type="text/javascript" src="assets/js/alert/window.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 </head>
@@ -27,7 +26,13 @@
         <div class="col-md-2" style=" padding:0;">
             <div class="introduce">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="foot">所属单位</li>
+                    <li class="foot">首页</li>
+                    <li><a href="person.html" style="color:#fff">人员管理</a></li>
+                    <li><a href="score.html" style="color:#fff">成绩管理</a></li>
+                    <li><a href="infomation.html" style="color:#fff">信息资料</a></li>
+                    <li><a href="course.html" style="color:#fff">远程教学</a></li>
+                    <li><a href="testScore.html" style="color:#fff">远程考核</a></li>
+                    <li><a href="systemManage.html" style="color:#fff">系统管理</a></li>
                 </ul>
             </div>
         </div>
@@ -36,15 +41,21 @@
                 <div class="detail_header">
                     <div class="header_list">
                         <div class="detail_left">
-                            <ul class="choice">
-                                <li><a href="shouye.html">首页</a></li>
-                                <li ><a href="person.html">人员管理</a></li>
-                                <li  ><a href="score.html">成绩管理</a></li>
-                                <li><a href="infomation.html">信息资料</a></li>
-                                <li><a href="course.html">远程教学</a></li>
-                                <li ><a href="testInfo.html">远程考核</a></li>
-                                <li class="default"><a href="systemManage.html">系统管理</a></li>
-                            </ul>
+                            <span>所属单位 </span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    一级单位 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="stair">
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    二级单位 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="second">
+                                </ul>
+                            </div>
                         </div>
                         <div class="detail_right">
                             <div class="login_left">
@@ -89,11 +100,11 @@
                         </div>
                         <div class="design">
                             <ul class="nav nav-tabs">
-                                <li role="presentation" class="active"><a href="systemManage.html">单位管理</a></li>
-                                <li role="presentation"><a href="systemTest.html">考核管理</a></li>
-                                <li role="presentation"><a href="systemUser.html">用户管理</a></li>
-                                <li role="presentation"><a href="systemJur.html">权限管理</a></li>
-                                <li role="presentation"><a href="systemRecord.html">操作记录</a></li>
+                                <li role="presentation" class="active"><a href="#">单位管理</a></li>
+                                <li role="presentation"><a href="#">考核管理</a></li>
+                                <li role="presentation"><a href="#">用户管理</a></li>
+                                <li role="presentation"><a href="#">权限管理</a></li>
+                                <li role="presentation"><a href="#">操作记录</a></li>
                             </ul>
                             <div class="but">
                                 <span class="label label-primary">编辑</span>
@@ -140,9 +151,10 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="assets/js/public.js"></script>
+<!--<script type="text/javascript">-->
+
+<!--</script>-->
 </body>
-<script>
 
-
-</script>
 </html>

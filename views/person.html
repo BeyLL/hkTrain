@@ -12,7 +12,7 @@
     <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="assets/js/localStorageUtils.js"></script>
-    <script type="text/javascript" src="assets/js/public.js"></script>
+
     <script type="text/javascript" src="assets/js/alert/window.js"></script>
 </head>
 <body>
@@ -25,44 +25,14 @@
     <div class="row">
         <div class="col-md-2" style=" padding:0;">
             <div class="introduce">
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="foot">所属单位</li>
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>三十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>三十军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>二十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                             <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>九十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
+                <ul class="nav nav-pills nav-stacked" >
+                    <li class="foot">首页</li>
+                    <li><a href="person.html" style="color:#fff">人员管理</a></li>
+                    <li><a href="score.html" style="color:#fff">成绩管理</a></li>
+                    <li><a href="infomation.html" style="color:#fff">信息资料</a></li>
+                    <li><a href="course.html" style="color:#fff">远程教学</a></li>
+                    <li><a href="testScore.html" style="color:#fff">远程考核</a></li>
+                    <li><a href="systemManage.html" style="color:#fff">系统管理</a></li>
                 </ul>
             </div>
         </div>
@@ -71,15 +41,30 @@
                 <div class="detail_header">
                     <div class="header_list">
                         <div class="detail_left">
-                            <ul class="choice">
-                                <li><a href="shouye.html">首页</a></li>
-                                <li  class="default"><a href="person.html">人员管理</a></li>
-                                <li><a href="score.html">成绩管理</a></li>
-                                <li><a href="infomation.html">信息资料</a></li>
-                                <li><a href="course.html">远程教学</a></li>
-                                <li ><a href="testInfo.html">远程考核</a></li>
-                                <li><a href="systemManage.html">系统管理</a></li>
-                            </ul>
+                            <span>所属单位 </span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    一级单位 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="stair">
+                                    <!--<li><a href="#">Action</a></li>-->
+                                    <!--<li><a href="#">Another action</a></li>-->
+                                    <!--<li><a href="#">Something else here</a></li>-->
+                                    <!--<li><a href="#">Separated link</a></li>-->
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    二级单位 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="second">
+                                    <!--<li><a href="#">Action</a></li>-->
+                                    <!--<li><a href="#">Another action</a></li>-->
+                                    <!--<li><a href="#">Something else here</a></li>-->
+                                    <!--<li role="separator" class="divider"></li>-->
+                                    <!--<li><a href="#">Separated link</a></li>-->
+                                </ul>
+                            </div>
                         </div>
                         <div class="detail_right">
                             <div class="login_left">
@@ -124,7 +109,7 @@
                         </div>
                         <div class="design">
                             <ul class="nav nav-tabs">
-                                <li role="presentation" class="active"><a href="person.html">人员记录列表</a></li>
+                                <li role="presentation" class="active"><a href="#">人员记录列表</a></li>
                                 <li role="presentation"><a href="#">图表展示</a></li>
                             </ul>
                             <div class="but">
@@ -187,6 +172,7 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="assets/js/public.js"></script>
 <script>
     //全选功能
     function allcheck(){

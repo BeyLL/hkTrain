@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>考核成绩</title>
+    <title>远程考核</title>
     <link rel="stylesheet" href="assets/css/reset.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fontSize/iconfont.css">
@@ -13,7 +13,6 @@
     <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="assets/js/localStorageUtils.js"></script>
-    <script type="text/javascript" src="assets/js/public.js"></script>
     <script type="text/javascript" src="assets/js/alert/window.js"></script>
 
 </head>
@@ -28,43 +27,13 @@
         <div class="col-md-2" style=" padding:0;">
             <div class="introduce">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="foot">所属单位</li>
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>三十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>三十军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>二十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<div class="left">-->
-                            <!--<img src="assets/images/soldier.png" alt="">-->
-                            <!--<span>九十八军</span>-->
-                        <!--</div>-->
-                        <!--<div class="right">-->
-                            <!--<span class="icon-youjiantou iconfont "></span>-->
-                        <!--</div>-->
-                    <!--</li>-->
+                    <li class="foot">首页</li>
+                    <li><a href="person.html" style="color:#fff">人员管理</a></li>
+                    <li><a href="score.html" style="color:#fff">成绩管理</a></li>
+                    <li><a href="infomation.html" style="color:#fff">信息资料</a></li>
+                    <li><a href="course.html" style="color:#fff">远程教学</a></li>
+                    <li><a href="testScore.html" style="color:#fff">远程考核</a></li>
+                    <li><a href="systemManage.html" style="color:#fff">系统管理</a></li>
                 </ul>
             </div>
         </div>
@@ -73,15 +42,32 @@
                 <div class="detail_header">
                     <div class="header_list">
                         <div class="detail_left">
-                            <ul class="choice">
-                                <li><a href="shouye.html">首页</a></li>
-                                <li><a href="person.html">人员管理</a></li>
-                                <li><a href="score.html">成绩管理</a></li>
-                                <li><a href="infomation.html">信息资料</a></li>
-                                <li><a href="course.html">远程教学</a></li>
-                                <li  class="default"><a href="testInfo.html">远程考核</a></li>
-                                <li><a href="systemManage.html">系统管理</a></li>
-                            </ul>
+                            <span>所属单位 </span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    一级单位
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">一旅</a></li>
+                                    <li><a href="#">一旅</a></li>
+                                    <li><a href="#">一旅</a></li>
+                                    <li><a href="#">一旅</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    二级单位 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">一营</a></li>
+                                    <li><a href="#">二营</a></li>
+                                    <li><a href="#">三营</a></li>
+                                    <li><a href="#">四营</a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="detail_right">
                             <div class="login_left">
@@ -120,11 +106,11 @@
                         </div>
                         <div class="design">
                             <ul class="nav nav-tabs">
-                                <li role="presentation"><a href="testInfo.html">考试信息</a></li>
-                                <li role="presentation"><a href="bankInfo.html">题库信息</a></li>
-                                <li role="presentation"><a href="testPublish.html">考试发布</a></li>
-                                <li role="presentation"><a href="testLeave.html">想定分发</a></li>
-                                <li role="presentation" class="active"><a href="testScore.html">考核成绩</a></li>
+                                <li role="presentation"><a href="#">考试信息</a></li>
+                                <li role="presentation"><a href="#">题库信息</a></li>
+                                <li role="presentation"><a href="#">考试发布</a></li>
+                                <li role="presentation"><a href="#">想定分发</a></li>
+                                <li role="presentation" class="active"><a href="#">考核成绩</a></li>
                             </ul>
                             <div class="but">
                                 <span class="label label-primary">添加</span>
@@ -202,5 +188,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="assets/js/public.js"></script>
 </body>
 </html>
