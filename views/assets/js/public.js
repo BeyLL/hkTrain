@@ -7,68 +7,97 @@
 var obj = readData("USER_KEY");
 var user = obj.name;
 var token = obj.token;
+//登录的是谁，我获取的就是谁
+function getRole(){
+    var data = {
+        url:
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var $ul = $("#stair");
 var id;
-//获取一级单位
+//获取一级单位,在这里获取的其实是二级单位
 getFirstUnit();
 function getFirstUnit() {
-    // var data = {
-    //     user:user,
-    //     token:token,
-    // }
-    // $.ajax({
-    //     url:"/getUnit",
-    //     type:"POST",
-    //     data:data,
-    //     success:function(result){
-    //         //获取到的真实数据
-    //         // var res = result.row;
-    //         var res = [{id:0,name:'一旅',pid:1},{id:0,name:'二旅',pid:1},{id:0,name:'三旅',pid:1},{id:0,name:'四旅',pid:1}]
-    //         for(var i=0;i<res.length;i++){
-    //            $ul.append($("<li></li>").append($("<a></a>").attr("href","#").html(""+res[i].name)));
-    //         }
-    //     }
-    // })
-
-
-    var res = [{id: 0, name: '一旅', pid: 1}, {id: 0, name: '二旅', pid: 1}, {id: 0, name: '三旅', pid: 1}, {
-        id: 0,
-        name: '四旅',
+    var data = {
+        user: user,
+        token: token,
         pid: 1
-    }];
-    for (var i = 0; i < res.length; i++) {
-        id = res[i].id
-        $ul.append($("<li></li>").append($("<a></a>").attr("href", "#").html("" + res[i].name)));
-    }
+    };
+    $.ajax({
+        url: "/getfirstUnit",
+        type: "POST",
+        data: data,
+        success: function (result) {
+            //获取到的真实数据
+            var res = result.row;
+            // var res = [{id:0,name:'一旅',pid:1},{id:0,name:'二旅',pid:1},{id:0,name:'三旅',pid:1},{id:0,name:'四旅',pid:1}]
+            for (var i = 0; i < res.length; i++) {
+                $ul.append($("<li></li>").addClass("" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
+            }
+
+            var $lis = $("#stair li");
+            $lis.click(function () {
+                $this = $(this);
+                $(".detail .detail_left #top span").first().html($this.children().html()+"");
+                var obj = $this.attr("class");
+                getSubUnit(parseFloat(obj))
+
+            })
+
+        }
+    })
 
 }
 
-var $ul1 = $("#second");
-getSubUnit()
-function getSubUnit(){
-    // var data = {
-    //     user:user,
-    //     token:token,
-    //     pid:id
-    // };
-    // $.ajax({
-    //     url:"/getUnit",
-    //     type:"POST",
-    //     data:data,
-    //     success:function(result){
-    //         //获取到的真实数据
-    //         // var res = result.row;
-    //         var res = [{id:0,name:'一营',pid:1},{id:0,name:'二营',pid:1},{id:0,name:'三营',pid:1},{id:0,name:'四营',pid:1}]
-    //         for(var i=0;i<res.length;i++){
-    //            $ul1.append($("<li></li>").append($("<a></a>").attr("href","#").html(""+res[i].name)));
-    //         }
-    //     }
-    // })
-    var result = [{id:0,name:'一营',pid:1},{id:0,name:'二营',pid:1},{id:0,name:'三营',pid:1},{id:0,name:'四营',pid:1}];
-            for(var i=0;i<result.length;i++){
-               $ul1.append($("<li></li>").append($("<a></a>").attr("href","#").html(""+result[i].name)));
-            }
 
+
+function getSubUnit(id) {
+    var $ul1 = $("#second");
+    $("#second").empty();
+    var data = {
+        user: user,
+        token: token,
+        pid: id
+    };
+    $.ajax({
+        url: "/getUnit",
+        type: "POST",
+        data: data,
+        success: function (result) {
+            //获取到的真实数据
+            console.log(result);
+            var res = result.row;
+            for(var i=0;i<res.length;i++){
+               $ul1.append($("<li></li>").append($("<a></a>").attr("href","#").html(""+res[i].name)));
+            }
+            var $lis = $("#second li");
+            $lis.click(function () {
+                $this = $(this);
+                $(".detail .detail_left #secondary span").first().html($this.children().html()+"");
+                var obj = $this.attr("class");
+                getSubUnit(parseFloat(obj))
+            })
+
+        }
+    })
 }
 
 // var result = [];
