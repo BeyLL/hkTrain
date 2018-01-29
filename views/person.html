@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-2" style=" padding:0;">
             <div class="introduce">
-                <ul class="nav nav-pills nav-stacked" >
+                <ul class="nav nav-pills nav-stacked">
                     <li class="foot">首页</li>
                     <li><a href="person.html" style="color:#fff">人员管理</a></li>
                     <li><a href="score.html" style="color:#fff">成绩管理</a></li>
@@ -43,7 +43,8 @@
                         <div class="detail_left">
                             <span>所属单位 </span>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                     一级单位 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" id="stair">
@@ -54,7 +55,8 @@
                                 </ul>
                             </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                     二级单位 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" id="second">
@@ -86,13 +88,6 @@
                                     <button type="button" class="btn btn-default">
                                         筛选查询 <span class="glyphicon glyphicon-triangle-bottom"></span>
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <!--<li><a href="#">Action</a></li>-->
-                                        <!--<li><a href="#">Another action</a></li>-->
-                                        <!--<li><a href="#">Something else here</a></li>-->
-                                        <!--<li role="separator" class="divider"></li>-->
-                                        <!--<li><a href="#">Separated link</a></li>-->
-                                    </ul>
                                 </div>
                             </div>
                             <div class="query_right">
@@ -107,6 +102,90 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="show_search">
+                            <ul id="search">
+                                <li>
+                                    <div class="search_left">
+                                        <span>一级单位 :</span>
+                                    </div>
+                                    <div class="search_right">
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search_left">
+                                        <span>二级单位 :</span>
+                                    </div>
+                                    <div class="search_right">
+                                        <span>一旅</span>
+                                        <span>二旅</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search_left">
+                                        <span>性别 :</span>
+                                    </div>
+                                    <div class="search_right">
+                                        <span>男</span>
+                                        <span>女</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search_left">
+                                        <span>年龄 :</span>
+                                    </div>
+                                    <div class="search_right">
+                                        <span>17周岁及以下</span>
+                                        <span>18-24</span>
+                                        <span>25-29</span>
+                                        <span>30-34</span>
+                                        <span>35-39</span>
+                                        <span>40-49</span>
+                                    </div>
+                                </li>
+                                <li class="national">
+                                    <div class="search_left">
+                                        <span>民族 :</span>
+                                    </div>
+
+                                </li>
+                                <li class="education">
+                                    <div class="search_left">
+                                        <span>文化程度 :</span>
+                                    </div>
+                                    <div class="search_right">
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search_left">
+                                        <span>专业 :</span>
+                                    </div>
+                                    <div class="search_right">
+                                      <span>英语</span>
+                                      <span>数学</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="search_left">
+                                        <span>政治面貌 :</span>
+                                    </div>
+                                    <div class="search_right">
+                                        <span>群众</span>
+                                        <span>共青团员</span>
+                                        <span>中共党员</span>
+                                        <span>其他</span>
+                                    </div>
+                                </li>
+                                <li class="province ">
+                                    <div class="search_left">
+                                        <span>籍贯 :</span>
+                                    </div>
+
+                                </li>
+                            </ul>
+
+                        </div>
                         <div class="design">
                             <ul class="nav nav-tabs">
                                 <li role="presentation" class="active"><a href="#">人员记录列表</a></li>
@@ -119,7 +198,7 @@
                                 <span style="cursor: pointer;" class="label label-primary">导出人员信息</span>
                             </div>
                         </div>
-                        <div class="personList">
+                        <div class="personList" id="tab">
                             <div style="overflow-x: auto;">
                                 <table class="table table-bordered " id="peopleHtml">
                                     <thead>
@@ -137,148 +216,129 @@
                                     共<span id="tiaoshu"></span>
                                     </select>条,
                                     第<span id="pageNum"></span>页
-                                    <input style="width: 50px;" id="tys" value="" />
+                                    <input style="width: 50px;" id="tys" value=""/>
                                     <button onclick="selectByPage()" id="tzs" class="btn btn-primary btn-sm">确定</button>
                                 </p>
                             </div>
                         </div>
-                        <!--<div class="bom">-->
-                            <!--<div>-->
-                                <!--<button class="btn btn-primary btn-sm">首页</button>-->
-                                <!--<button class="btn btn-primary btn-sm">上一页</button>-->
-                            <!--</div>-->
-                                <!--<ul class="pagination" style="margin-bottom:-13px">-->
-                                    <!--<li><a href="#" aria-label="Previous"><span-->
-                                            <!--aria-hidden="true">1</span></a>-->
-                                    <!--</li>-->
-                                    <!--<li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>-->
-                                    <!--<li><a href="#" aria-label="Previous"><span-->
-                                            <!--aria-hidden="true">3</span></a>-->
-                                    <!--</li>-->
-                                    <!--<li><a href="#" aria-label="Previous"><span-->
-                                            <!--aria-hidden="true">4</span></a>-->
-                                    <!--</li>-->
-                                <!--</ul>-->
-
-                            <!--<div>-->
-                                <!--<button class="btn btn-primary btn-sm">下一页</button>-->
-                                <!--<button class="btn btn-primary btn-sm">末页</button>-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    </div>
+                    <div class="personList dis" id="chart">
+                        我是图表
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
 </div>
-</body>
 <script type="text/javascript" src="assets/js/public.js"></script>
+<script type="text/javascript" src="assets/js/province.js"></script>
 <script>
+    $("#chart").attr("display", "none");
     //全选功能
-    function allcheck(){
-        if($('#allcheck').is(':checked') == true){
-            $('#userList input[type=checkbox]').prop('checked',true);
-        }else if($('#allcheck').is(':checked') == false){
-            $('#userList input[type=checkbox]').prop('checked',false);
+    function allcheck() {
+        if ($('#allcheck').is(':checked') == true) {
+            $('#userList input[type=checkbox]').prop('checked', true);
+        } else if ($('#allcheck').is(':checked') == false) {
+            $('#userList input[type=checkbox]').prop('checked', false);
         }
     }
     //批量删除
     $('#delAll').click(function () {
         var datas = [];
-        for(var i = 0;i<$('#userList input[type=checkbox]').length;i++){
-            if($('#userList input[type=checkbox]').eq(i).is(':checked') == true){
+        for (var i = 0; i < $('#userList input[type=checkbox]').length; i++) {
+            if ($('#userList input[type=checkbox]').eq(i).is(':checked') == true) {
                 datas.push($('#userList input[type=checkbox]').eq(i).val());
             }
         }
-        if(datas.length == 0){
-            win.alert('提示','请勾选要删除的人员')
-        }else{
+        if (datas.length == 0) {
+            win.alert('提示', '请勾选要删除的人员')
+        } else {
             var settings = {
-                "url":"/delete_people",
+                "url": "/delete_people",
                 "method": "POST",
-                "async":false,
-                "data":{
-                    user:readData('USER_KEY').name,
-                    token:readData('USER_KEY').token,
-                    id:JSON.stringify(datas),
+                "async": false,
+                "data": {
+                    user: readData('USER_KEY').name,
+                    token: readData('USER_KEY').token,
+                    id: JSON.stringify(datas),
                 }
             }
             console.log(settings.data)
             $.ajax(settings).done(function (response) {
                 console.log(response);
-                if(response.code ==0){
-                    win.alert("提示",response.msg);
+                if (response.code == 0) {
+                    win.alert("提示", response.msg);
                     getUserList();
-                }else{
-                    win.alert("提示",response.msg);
+                } else {
+                    win.alert("提示", response.msg);
                 }
             });
         }
     })
-    
-    var pageNow=1;
+
+    var pageNow = 1;
     var pageSum;
-    var pagesize=10;
+    var pagesize = 10;
     //获取人员
     function getUserList() {
         console.log(pagesize)
         var settings = {
-            "url":"getPeople",
+            "url": "getPeople",
             "method": "POST",
-            "async":false,
-            "data":{
-                user:readData('USER_KEY').name,
-                token:readData('USER_KEY').token,
+            "async": false,
+            "data": {
+                user: readData('USER_KEY').name,
+                token: readData('USER_KEY').token,
 //                user:"张三",
 //                token:"0",
-                unit_first:readData('USER_KEY').id,
-                page:pageNow,
-                pageSize:pagesize,
+                unit_first: readData('USER_KEY').id,
+                page: pageNow,
+                pageSize: pagesize,
             }
         }
         console.log(settings.data)
         $.ajax(settings).done(function (response) {
             console.log(response);
-            if(response.code==0){
+            if (response.code == 0) {
                 console.log(response);
-                var attr=response.row;
-                var data=response.data;
-                var attrHtml='';
-                var html='';
-                for(var j=0;j<attr.length;j++){
-                    if(j==0){
-                        attrHtml+=" <th style='white-space: nowrap;font-size: 15px;'><input id='allcheck' onchange='allcheck()' type='checkbox'/></th>";
-                        attrHtml+=" <th style='white-space: nowrap;font-size: 15px;'>序号</th>";
-                    }else{
-                        attrHtml+=" <th style='white-space: nowrap;font-size: 15px;'>"+attr[j].attrValue+"</th>";
+                var attr = response.row;
+                var data = response.data;
+                var attrHtml = '';
+                var html = '';
+                for (var j = 0; j < attr.length; j++) {
+                    if (j == 0) {
+                        attrHtml += " <th style='white-space: nowrap;font-size: 15px;'><input id='allcheck' onchange='allcheck()' type='checkbox'/></th>";
+                        attrHtml += " <th style='white-space: nowrap;font-size: 15px;'>序号</th>";
+                    } else {
+                        attrHtml += " <th style='white-space: nowrap;font-size: 15px;'>" + attr[j].attrValue + "</th>";
                     }
-                    if(j == attr.length-1){
-                        attrHtml+=" <th style='white-space: nowrap;font-size: 15px;'>操作</th>";
+                    if (j == attr.length - 1) {
+                        attrHtml += " <th style='white-space: nowrap;font-size: 15px;'>操作</th>";
                     }
                 }
                 $('#attr').html(attrHtml);
-                for(var i = 0;i<data.length;i++){
-                    if(pageNow==1){
-                        var k=i+1;
-                    }else{
-                        var k = parseInt((pageNow-1)*pagesize+i+1);
+                for (var i = 0; i < data.length; i++) {
+                    if (pageNow == 1) {
+                        var k = i + 1;
+                    } else {
+                        var k = parseInt((pageNow - 1) * pagesize + i + 1);
                     }
                     var attrname = data[i];
-                    for(key in attrname){
-                        html+='<tr>'
-                        for(var l=0;l<attr.length;l++){
-                            if(l==0){
-                                html+="<td><input class='check' type='checkbox' value='"+attrname[attr[0].attrName]+"'/></td><td style='font-size:14px;white-space: nowrap;'>"+k+"</td>";
-                            }else{
-                                html+="<td style='font-size:14px;white-space: nowrap;'>"+attrname[attr[l].attrName]+"</td>";
+                    for (key in attrname) {
+                        html += '<tr>'
+                        for (var l = 0; l < attr.length; l++) {
+                            if (l == 0) {
+                                html += "<td><input class='check' type='checkbox' value='" + attrname[attr[0].attrName] + "'/></td><td style='font-size:14px;white-space: nowrap;'>" + k + "</td>";
+                            } else {
+                                html += "<td style='font-size:14px;white-space: nowrap;'>" + attrname[attr[l].attrName] + "</td>";
                             }
-                            if(l == attr.length-1){
-                                html+="<td style='font-size:14px;'><span class='label label-info' style='cursor: pointer;margin-right: 10px' onclick='diaochu(" + attrname[attr[0].attrName] + ")''><i class='glyphicon glyphicon-edit'>&nbsp;</i>调出</span>" +
+                            if (l == attr.length - 1) {
+                                html += "<td style='font-size:14px;'><span class='label label-info' style='cursor: pointer;margin-right: 10px' onclick='diaochu(" + attrname[attr[0].attrName] + ")''><i class='glyphicon glyphicon-edit'>&nbsp;</i>调出</span>" +
                                     "<span class='label label-info' style='cursor: pointer;margin-right: 10px' onclick='bianji(" + attrname[attr[0].attrName] + ")''><i class='glyphicon glyphicon-edit'>&nbsp;</i>编辑</span>" +
                                     "<span class='label label-danger' style='cursor: pointer;' onclick='shanchu(" + attrname[attr[0].attrName] + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>";
                             }
                         }
-                        html+='</tr>'
+                        html += '</tr>'
                         break;
                     }
 //                    html+="<tr>"
@@ -292,46 +352,46 @@
 //                        "<span class='label label-danger' style='cursor: pointer;' onclick='shanchu(" + data[i].id + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>"
 //                    html+="</tr>"
                 }
-                if(pagesize != data.length){
-                    for(var j = 0;j<pagesize-data.length;j++){
-                        html+="<tr style='height:37px;'></tr>";
+                if (pagesize != data.length) {
+                    for (var j = 0; j < pagesize - data.length; j++) {
+                        html += "<tr style='height:37px;'></tr>";
                     }
                 }
                 $('#userList').html(html);
                 $('#tiaoshu').text(response.total)
-                pageSum=response.total/pagesize;
-                pageSum=Math.ceil(pageSum);
-                var pageInSum=pageNow+"/"+pageSum
+                pageSum = response.total / pagesize;
+                pageSum = Math.ceil(pageSum);
+                var pageInSum = pageNow + "/" + pageSum
                 $('#pageNum').text(pageInSum);
             } else {
-                win.alert('提示',response.msg);
+                win.alert('提示', response.msg);
             }
         });
     }
     getUserList();
     //第一页
-    function first(){
-        if(pageNow==1){
-            win.alert("提示","已是第一页");
+    function first() {
+        if (pageNow == 1) {
+            win.alert("提示", "已是第一页");
             return
         }
-        pageNow=1;
+        pageNow = 1;
         getUserList();
     }
     //上一页
-    function prevpage(){
+    function prevpage() {
 
-        if(pageNow==1){
-            win.alert("提示","已是第一页");
+        if (pageNow == 1) {
+            win.alert("提示", "已是第一页");
             return
         }
         pageNow--;
         getUserList();
     }
-    function nextpage(){
+    function nextpage() {
 
-        if(pageNow==pageSum){
-            win.alert("提示","已是最后一页");
+        if (pageNow == pageSum) {
+            win.alert("提示", "已是最后一页");
             return
         }
         pageNow++;
@@ -339,27 +399,27 @@
 
     }
     //最后一页
-    function last(){
-        if(pageNow==pageSum){
-            win.alert("提示","已是最后一页");
+    function last() {
+        if (pageNow == pageSum) {
+            win.alert("提示", "已是最后一页");
             return
         }
-        pageNow=pageSum;
-        pagesize=10;
+        pageNow = pageSum;
+        pagesize = 10;
         getUserList();
     }
 
     //按页数查询
-    function selectByPage(){
-        if($('#ty').val()==''){
-            pageNow=1;
+    function selectByPage() {
+        if ($('#ty').val() == '') {
+            pageNow = 1;
             getUserList();
-        }else if($('#ty').val()<1||$('#ty').val()>pageSum){
-            win.alert('提示','输入页数为正数且不能大于'+pageSum);
+        } else if ($('#ty').val() < 1 || $('#ty').val() > pageSum) {
+            win.alert('提示', '输入页数为正数且不能大于' + pageSum);
             $('#ty').val('');
             return;
-        }else{
-            pageNow=$('#ty').val();
+        } else {
+            pageNow = $('#ty').val();
             getUserList();
             return;
         }
@@ -368,29 +428,29 @@
 
 
     /*删除*/
-    function shanchu(id){
+    function shanchu(id) {
         var Data = {};
-        Data.user=readData("USER_KEY").name;
-        Data.token=readData("USER_KEY").token;
+        Data.user = readData("USER_KEY").name;
+        Data.token = readData("USER_KEY").token;
         Data.id = id;
         console.log(Data);
-        win.confirm('提示','确认删除删除后无法恢复',function(r){
-            if(r == true){
+        win.confirm('提示', '确认删除删除后无法恢复', function (r) {
+            if (r == true) {
                 var settings = {
-                    "url":"/delete_people",
+                    "url": "/delete_people",
                     "method": "POST",
-                    "data":Data,
+                    "data": Data,
                 };
                 $.ajax(settings).done(function (response) {
                     console.log(response);
-                    if (response.code==0){
-                        $("#bj_trq"+id).remove();
+                    if (response.code == 0) {
+                        $("#bj_trq" + id).remove();
                         hquser()
-                    }else{
+                    } else {
                         alert(response.msg);
                     }
                 });
-            }else{
+            } else {
                 return false;
             }
 
@@ -406,5 +466,48 @@
 
     }
 
+
+    var $tab = $(".personList");
+    var $li = $(".design .nav li");
+    $li.click(function () {
+        $this = $(this);
+        var index = $li.index($this);
+        $tab.eq(index).removeClass("dis").siblings().addClass("dis")
+    })
+
+    //筛选查询的显示与隐藏切换
+    var $query = $(".query_left");
+    var $search = $(".show_search");
+    var sea = false;
+    $query.click(function () {
+        if (!sea) {
+            $search.css("display", "block");
+            $(".query_left .glyphicon").removeClass("glyphicon glyphicon-triangle-bottom").addClass("glyphicon glyphicon-triangle-top")
+            sea = true;
+        } else {
+            $search.css("display", "none");
+            $(".query_left .glyphicon").removeClass("glyphicon glyphicon-triangle-top").addClass("glyphicon glyphicon-triangle-bottom")
+            sea = !sea;
+        }
+
+    })
+
+
+    var $na = $("#search .national");
+    for (var i = 0; i < nations.length; i++) {
+        $na.append($("<span></span>").html("" + nations[i]))
+    }
+
+    var $ed = $("#search .education .search_right");
+    for(var i=0;i<education.length;i++){
+        $ed.append($("<span></span>").html(""+education[i]))
+    }
+
+    var $pro = $("#search .province ");
+    for(var i=0;i<province.length;i++){
+        $pro.append($("<span></span>").html(""+province[i]))
+    }
+
 </script>
+</body>
 </html>

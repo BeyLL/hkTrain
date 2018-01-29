@@ -4,6 +4,45 @@ body {
     height: 100%;
 }
 
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    background-color: #1458a7;
+}
+
+/*滑块效果*/
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px transparent;
+    background: #1458a7;
+}
+
+/*IE滚动条颜色*/
+html {
+    scrollbar-face-color: #1458a7; /*滚动条颜色*/
+    scrollbar-highlight-color: transparent;
+    scrollbar-3dlight-color: transparent;
+    scrollbar-darkshadow-color: transparent;
+    scrollbar-Shadow-color: transparent; /*滑块边色*/
+    scrollbar-arrow-color: transparent; /*箭头颜色*/
+    scrollbar-track-color: transparent; /*背景颜色*/
+}
+
 .container {
     position: absolute;
     top: 60px;
@@ -178,11 +217,11 @@ body {
     line-height: 24px;
 }
 
-.footer_content .personList {
+ .personList {
     padding: 10px 10px;
 }
 
-.footer_content .personList .table tr th, tr td {
+ .personList .table tr th, tr td {
     text-align: center;
     font-weight: normal;
 }
@@ -204,3 +243,48 @@ body {
 .footer_content .bom div {
     display: inline-block;
 }
+
+.dis {
+    display: none;
+}
+
+.show_search {
+    padding: 10px;
+    width: 100%;
+    height: 270px;
+    display: none;
+}
+
+.show_search #search {
+    padding: 0 10px;
+    height: 248px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #c8c8cc;
+}
+
+#search li {
+    padding:10px 0;
+    border-bottom: 1px dashed #c8c8cc;
+    overflow: hidden;
+    /*height: 34px;*/
+    /*line-height: 34px;*/
+}
+
+.show_search #search li div {
+    display: inline-block;
+}
+
+.show_search #search li .search_left{
+    margin-right:10px;
+    width:80px;
+    text-align:left;
+}
+
+
+
+.show_search #search li  span{
+    display:inline-block;
+    margin-left:10px;
+}
+
