@@ -107,7 +107,7 @@ function getUserList(firstId,secondId) {
                                 "<span class='label label-danger' style='cursor: pointer;' onclick='shanchu(" + attrname[attr[0].attrName] + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>";
                         }
                     }
-                    html += '</tr>'
+                    html += '</tr>';
                     break;
                 }
 //                    html+="<tr>"
@@ -118,7 +118,7 @@ function getUserList(firstId,secondId) {
 //                        "<td style='font-size:14px;width: 7%;'>"+data[i].evaluation+"</td><td style='font-size:14px;width: 15%;'>"+getMyDate(data[i].check_time)+"</td>" +
 //                        "<td style='font-size:14px;width: 10%;'>"+data[i].remark+"</td>" +
 //                        "<td style='font-size:14px;'><span class='label label-info' style='cursor: pointer;margin-right: 10px' onclick='bianji(" + data[i].id + ")''><i class='glyphicon glyphicon-edit'>&nbsp;</i>编辑</span>" +
-//                        "<span class='label label-danger' style='cursor: pointer;' onclick='shanchu(" + data[i].id + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>"
+//                        "<span class='label label-dange   r' style='cursor: pointer;' onclick='shanchu(" + data[i].id + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>"
 //                    html+="</tr>"
             }
             if (pagesize != data.length) {
@@ -157,6 +157,7 @@ function prevpage() {
     pageNow--;
     getUserList();
 }
+//下一页
 function nextpage() {
 
     if (pageNow == pageSum) {
@@ -164,7 +165,7 @@ function nextpage() {
         return
     }
     pageNow++;
-    getUserList();
+    getUserList(parseFloat(obj));
 
 }
 //最后一页

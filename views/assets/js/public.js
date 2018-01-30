@@ -39,6 +39,7 @@ function getrole() {
 getrole();
 var $ul = $("#stair");
 var id;
+var obj;
 //获取一级单位,在这里获取的其实是二级单位
 
 function getFirstUnit(id) {
@@ -64,7 +65,9 @@ function getFirstUnit(id) {
                 $lis.click(function () {
                     $this = $(this);
                     $(".detail .detail_left #top span").first().html($this.children().html() + "");
-                    var obj = $this.attr("class");
+                    obj = $this.attr("class");
+                    pageNow = 1;
+                    console.log(obj);
                     getUserList( parseFloat(obj));
                     getSubUnit(parseFloat(obj))
 
@@ -103,7 +106,7 @@ function getSubUnit(id) {
                 $lis.click(function () {
                     $this = $(this);
                     $(".detail .detail_left #secondary span").first().html($this.children().html() + "");
-                    var obj = $this.attr("class");
+                     obj = $this.attr("class");
                     getSubUnit(parseFloat(obj))
                 })
             }else{
