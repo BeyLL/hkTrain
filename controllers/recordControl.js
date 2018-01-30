@@ -452,7 +452,7 @@ exports.getRecord = function (req,res) {
     var unit_first = body.unit_first || -1;
     var unit_second = body.unit_second || -1;
     try {
-        if(user == -1 || token == -1 || (unit_first != -1 && unit_second == -1)){
+        if(user == -1 || token == -1 ){
             res.json({"code":300,"msg":"参数错误"});
         }else{
             permiss.checkMobile2Token(user,token,function (date) {

@@ -4,17 +4,25 @@
 var pageNow=1;
 var pageSum;
 var pagesize=10;
-getSroreList();
-//分页查询日志
-function getSroreList() {
+// console.log(obj.name, obj.id);
+getSroreList(parseFloat(obj.id));
+//后去全部的人
+function getSroreList(id,secId) {
+    if(id==undefined){
+        return;
+    }
+    if(secId==undefined){
+        secId = undefined;
+    }
+
     var settings = {
-        "url":"getRecord",
+        "url":"/getRecord",
         "method": "POST",
-        "async":"false",
         "data":{
             user:readData('USER_KEY').name,
             token:readData('USER_KEY').token,
-            card_id:150011,
+            unit_first:id,
+            unit_second:secId,
             page:pageNow,
             pageSize:pagesize,
         }

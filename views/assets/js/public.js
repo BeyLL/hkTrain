@@ -39,9 +39,10 @@ function getrole() {
 getrole();
 var $ul = $("#stair");
 var id;
-var obj;
-var obj1;
-//获取一级单位,在这里获取的其实是二级单位
+var first;
+var sec;
+var bt;
+//获取一级单位
 
 function getFirstUnit(id) {
     var data = {
@@ -67,12 +68,18 @@ function getFirstUnit(id) {
                     $this = $(this);
                     $(".detail .detail_left #top span").first().html($this.children().html() + "");
                     $(".detail .detail_left #secondary span").first().html("二级单位");
-                    obj = $this.attr("class");
+                    first = $this.attr("class");
                     pageNow = 1;
-                    console.log(obj);
-                    getUserList( parseFloat(obj));
-                    getSubUnit(parseFloat(obj))
-
+                    // getUserList( parseFloat(obj));
+                    // getSubUnit(parseFloat(obj))
+                    var connect = window.location.href;
+                    if(connect.indexOf('person.html')!=-1){
+                        getSubUnit(parseFloat(first))
+                    }else if(connect.indexOf('score.html')!=-1){
+                        getSroreList(parseFloat(first));
+                        var bt = false
+                        getSubUnit(parseFloat(first))
+                    }
                 })
             }else{
                     $("#top span").first().html("一级单位")
@@ -83,7 +90,7 @@ function getFirstUnit(id) {
 
 }
 
-
+//
 function getSubUnit(id) {
     var $ul1 = $("#second");
     $("#second").empty();
@@ -108,9 +115,12 @@ function getSubUnit(id) {
                 $lis.click(function () {
                     $this = $(this);
                     $(".detail .detail_left #secondary span").first().html($this.children().html() + "");
-                     obj1 = $this.attr("class");
+                     sec = $this.attr("class");
+                     if(!bt){
+                         return;
+                     }
                      pageNow = 1;
-                    getUserList( parseFloat(obj),parseFloat(obj1));
+                    getUserList( parseFloat(first),parseFloat(sec));
                 })
             }else{
                 $("#secondary span").first().html("二级单位");
@@ -216,8 +226,9 @@ $lis.click(function () {
 
 //左侧导航栏默认样式的切换
 
-var $choice = $(".introduce .nav li a");
-$choice.splice(0, 1);
-$choice.click(function () {
-    $this.addClass("pitch").parents().child().removeClass("pitch")
-});
+// var $choice = $(".introduce .nav li a");
+// $choice.splice(0, 1);
+// $choice.click(function () {
+//     $this = $(this);
+//     // $this.addClass("pitch").parents().child().removeClass("pitch")
+// });
