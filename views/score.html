@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/infomation.css">
     <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="assets/js/localStorageUtils.js"></script>
-
     <script type="text/javascript" src="assets/js/alert/window.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 </head>
@@ -83,7 +82,7 @@
                             <input id="cjrq" type="date">
                         </li>
                         <li id="but" style="text-align: center;">
-                            <button onclick="close1()" style="width: 70px;height: 30px;border: 1px solid #cdcdcd;background: none;border-radius: 5%;margin-top: 30px;" id="close">取消</button>
+                            <button onclick="close1()" style="width: 70px;height: 30px;border: 1px solid #cdcdcd;background: none;border-radius: 5%;" id="close">取消</button>
                             <button style="width: 70px;height: 30px;border: 1px solid #cdcdcd;background: none;border-radius: 5%;background: #2B90E2;margin-left: 40px" id="queding">确定</button>
                         </li>
                     </div>
@@ -362,6 +361,12 @@
 
     function add(){
         $('.box').css('display','block');
+    }
+
+
+    //新增窗口关闭
+    function close1(){
+        $("#box").hide()
     }
 </script>
 </html>

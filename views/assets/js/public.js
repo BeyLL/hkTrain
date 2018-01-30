@@ -107,7 +107,7 @@ function getSubUnit(id) {
                     $this = $(this);
                     $(".detail .detail_left #secondary span").first().html($this.children().html() + "");
                      obj = $this.attr("class");
-                    getSubUnit(parseFloat(obj))
+                    // getSubUnit(parseFloat(obj))
                 })
             }else{
                 $("#secondary span").first().html("二级单位");

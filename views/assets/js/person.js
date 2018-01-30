@@ -1,3 +1,110 @@
+var province = [
+    "北京市",
+    "天津市",
+    "河北省",
+    "山西省",
+    "内蒙古自治区",
+    "辽宁省",
+    "吉林省",
+    "黑龙江省",
+    "上海市",
+    "江苏省",
+    "浙江省",
+    "安徽省",
+    "福建省",
+    "江西省",
+    "山东省",
+    "河南省",
+    "湖北省",
+    "湖南省",
+    "广东省",
+    "广西壮族自治区",
+    "海南省",
+    "重庆市",
+    "四川省",
+    "贵州省",
+    "云南省",
+    "西藏自治区",
+    "陕西省",
+    "甘肃省",
+    "青海省",
+    "宁夏回族自治区",
+    "新疆维吾尔自治区",
+    "台湾省",
+    "香港特别行政区",
+    "澳门特别行政区",
+];
+
+var nations = [
+    "汉族",
+    "蒙古族",
+    "回族",
+    "藏族",
+    "维吾尔族",
+    "苗族",
+    "彝族",
+    "壮族",
+    "布依族",
+    "朝鲜族",
+    "满族",
+    "侗族",
+    "瑶族",
+    "白族",
+    "土家族",
+    "哈尼族",
+    "哈萨克族",
+    "傣族",
+    "黎族",
+    "傈僳族",
+    "佤族",
+    "畲族",
+    "高山族",
+    "拉祜族",
+    "水族",
+    "东乡族",
+    "纳西族",
+    "景颇族",
+    "柯尔克孜族",
+    "土族",
+    "达斡尔族",
+    "仫佬族",
+    "羌族",
+    "布朗族",
+    "撒拉族",
+    "毛南族",
+    "仡佬族",
+    "锡伯族",
+    "阿昌族",
+    "普米族",
+    "塔吉克族",
+    "怒族",
+    "乌孜别克族",
+    "俄罗斯族",
+    "鄂温克族",
+    "德昂族",
+    "保安族",
+    "裕固族",
+    "京族",
+    "塔塔尔族",
+    "独龙族",
+    "鄂伦春族",
+    "赫哲族",
+    "门巴族",
+    "珞巴族",
+    "基诺族"
+];
+
+var education = [
+    "小学",
+    "初中",
+    "高中",
+    "中专",
+    "大专",
+    "本科",
+    "硕士",
+    "博士"
+]
+
 $("#chart").attr("display", "none");
 //全选功能
 function allcheck() {
@@ -16,7 +123,7 @@ $('#delAll').click(function () {
         }
     }
     if (datas.length == 0) {
-        win.alert('提示', '请勾选要删除的人员')
+        win.alert('提示', '请勾选要删除的人员');
     } else {
         var settings = {
             "url": "/delete_people",
@@ -28,7 +135,6 @@ $('#delAll').click(function () {
                 id: JSON.stringify(datas),
             }
         }
-        console.log(settings.data)
         $.ajax(settings).done(function (response) {
             console.log(response);
             if (response.code == 0) {
@@ -69,7 +175,6 @@ function getUserList(firstId,secondId) {
     $.ajax(settings).done(function (response) {
         console.log(response);
         if (response.code == 0) {
-            console.log(response);
             var attr = response.row;
             var data = response.data;
             var attrHtml = '';
@@ -118,7 +223,7 @@ function getUserList(firstId,secondId) {
 //                        "<td style='font-size:14px;width: 7%;'>"+data[i].evaluation+"</td><td style='font-size:14px;width: 15%;'>"+getMyDate(data[i].check_time)+"</td>" +
 //                        "<td style='font-size:14px;width: 10%;'>"+data[i].remark+"</td>" +
 //                        "<td style='font-size:14px;'><span class='label label-info' style='cursor: pointer;margin-right: 10px' onclick='bianji(" + data[i].id + ")''><i class='glyphicon glyphicon-edit'>&nbsp;</i>编辑</span>" +
-//                        "<span class='label label-dange   r' style='cursor: pointer;' onclick='shanchu(" + data[i].id + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>"
+//                        "<span class='label label-danger' style='cursor: pointer;' onclick='shanchu(" + data[i].id + ")''><i class='glyphicon glyphicon-remove'>&nbsp;</i>删除</span></td>"
 //                    html+="</tr>"
             }
             if (pagesize != data.length) {
@@ -181,15 +286,15 @@ function last() {
 
 //按页数查询
 function selectByPage() {
-    if ($('#ty').val() == '') {
+    if ($('#tys').val() == '') {
         pageNow = 1;
         getUserList();
-    } else if ($('#ty').val() < 1 || $('#ty').val() > pageSum) {
+    } else if ($('#tys').val() < 1 || $('#tys').val() > pageSum) {
         win.alert('提示', '输入页数为正数且不能大于' + pageSum);
-        $('#ty').val('');
+        $('#tys').val('');
         return;
     } else {
-        pageNow = $('#ty').val();
+        pageNow = $('#tys').val();
         getUserList();
         return;
     }
@@ -199,25 +304,25 @@ function selectByPage() {
 
 /*删除*/
 function shanchu(id) {
-    var Data = {};
-    Data.user = readData("USER_KEY").name;
-    Data.token = readData("USER_KEY").token;
-    Data.id = id;
-    console.log(Data);
+    var DataArr =[id];
     win.confirm('提示', '确认删除删除后无法恢复', function (r) {
         if (r == true) {
             var settings = {
                 "url": "/delete_people",
                 "method": "POST",
-                "data": Data,
+                "data": {
+                    user:readData("USER_KEY").name,
+                    token:readData("USER_KEY").token,
+                    id:JSON.stringify(DataArr),
+                },
             };
             $.ajax(settings).done(function (response) {
                 console.log(response);
                 if (response.code == 0) {
-                    $("#bj_trq" + id).remove();
-                    hquser()
+                    win.alert("提示",response.msg);
+                    getUserList()
                 } else {
-                    alert(response.msg);
+                    win.alert("提示",response.msg);
                 }
             });
         } else {
@@ -232,10 +337,170 @@ function diaochu(id) {
 
 }
 function bianji(id) {
+    $(".box").css("display","block");
+    var settings = {
+        "url": "/getfirstUnit",
+        "method": "POST",
+        "data": {
+            user:readData("USER_KEY").name,
+            token:readData("USER_KEY").token,
+            pid:1,
+        },
+    };
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        if (response.code == 0) {
+            var msgs = response.row;
+            var html = "<option value=''></option>";
+            for(var i=0;i<msgs.length;i++){
+                html+= "<option value='"+msgs[i].id+"'>"+msgs[i].name+"</option>"
+            }
+            $("#unit_first").html(html);
+            var settings = {
+                "url": "/getPeopleId",
+                "method": "POST",
+                "data": {
+                    user:readData("USER_KEY").name,
+                    token:readData("USER_KEY").token,
+                    id:id,
+                },
+            };
+            $.ajax(settings).done(function (datas) {
+                if (datas.code == 0) {
+                    var msg = datas.row;
+                    ID = msg.id;
+                    $("#unit_first").val(msg.unit_first);
+
+                    $("#username").val(msg.name);
+                    $("#card_id").val(msg.card_id);
+                    $("#sex option:selected").html(msg.sex);
+                    $("#person_type option:selected").html(msg.person_type);
+                    $("#brith_day").val(msg.brith_day);
+                    $("#education option:selected").html(msg.education);
+                    $("#nation option:selected").html(msg.nation);
+                    $("#political_visage option:selected").html(msg.political_visage);
+                    $("#household option:selected").html(msg.household);
+                    $("#origin_place ").val(msg.origin_place);
+                    $("#specialty").val(msg.specialty);
+                    $("#single_parent option:selected").html(msg.single_parent);
+                    $("#address").val(msg.address);
+                    $("#mobile").val(msg.mobile);
+                    $("#remark").val(msg.remark);
+                    $("#only_child option:selected").html(msg.only_child);
+                    var settings = {
+                        "url": "/getfirstUnit",
+                        "method": "POST",
+                        "data": {
+                            user:readData("USER_KEY").name,
+                            token:readData("USER_KEY").token,
+                            pid:$("#unit_first option:selected").val(),
+                        },
+                    };
+                    $.ajax(settings).done(function (data) {
+                        if(data.code==0){
+                            console.log(data);
+                            var html = "<option value=''></option>";
+                            for(var i=0;i<data.row.length;i++){
+                                html+= "<option value='"+data.row[i].id+"'>"+data.row[i].name+"</option>"
+                            }
+                            $("#unit_second").html(html);
+                            $("#unit_second").val(msg.unit_second);
+                        }else {
+                            win.alert("提示",data.msg)
+                        }
+
+                    })
+                } else {
+                    win.alert("提示",response.msg);
+                }
+            });
+        } else {
+            win.alert("提示",response.msg);
+        }
+    });
 
 
 }
-
+//取消
+function cancels() {
+    $(".box").css("display","none");
+}
+//保存
+function keeps() {
+    var data={};
+    data.unit_first = $("#unit_first").val();
+    data.unit_second = $("#unit_second").val();
+    data.name = $("#username").val();
+    data.card_id = $("#card_id").val();
+    data.sex = $("#sex option:selected").html();
+    data.person_type = $("#person_type option:selected").html();
+    data.brith_day = $("#brith_day").val();
+    data.education = $("#education option:selected").html();
+    data.nation = $("#nation option:selected").html();
+    data.political_visage = $("#political_visage option:selected").html();
+    data.household = $("#household option:selected").html();
+    data.origin_place = $("#origin_place").val();
+    data.specialty = $("#specialty").val();
+    data.single_parent = $("#single_parent option:selected").html();
+    data.address = $("#address").val();
+    data.mobile = $("#mobile").val();
+    data.remark = $("#remark").val();
+    data.only_child = $("#only_child option:selected").html();
+    if(data.unit_first==""){
+        win.alert("提示","一级单位不能为空");
+        return;
+    }
+    if(data.unit_second==""){
+        win.alert("提示","二级单位不能为空");
+        return;
+    }
+    if(data.name==""){
+        win.alert("提示","姓名不能为空");
+        return;
+    }
+    if(data.brith_day==""){
+        win.alert("提示","出生日期不能为空");
+        return;
+    }
+    if(data.nation==""){
+        win.alert("提示","民族不能为空");
+        return;
+    }
+    if(data.person_type==""){
+        win.alert("提示","人员类型不能为空");
+        return;
+    }
+    var datas ={};
+    datas.data = data;
+    datas.id = ID;
+    datas.user = readData("USER_KEY").name;
+    datas.token = readData("USER_KEY").token;
+    datas = JSON.stringify(datas);
+    $.ajax({
+        url: "/update_people",
+        type: "post",
+        dataType: "json",
+        async: false,
+        headers: {'Content-Type': 'application/json'},
+        data: datas,
+        timeOut: 10000,
+        success: function (data){
+            console.log(data);
+            if (data.code == 0) {
+                win.alert('提示', data.msg,function (r) {
+                    history.go(0);
+                });
+            } else {
+                win.alert('提示', data.msg);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    })
+}
 
 var $tab = $(".personList");
 var $li = $(".design .nav li");
@@ -278,16 +543,26 @@ for(var i=0;i<province.length;i++){
     $pro.append($("<span></span>").html(""+province[i]))
 }
 
+function changes() {
+    var settings = {
+        "url": "/getfirstUnit",
+        "method": "POST",
+        "data": {
+            user:readData("USER_KEY").name,
+            token:readData("USER_KEY").token,
+            pid:$("#unit_first option:selected").val(),
+        },
+    };
+    $.ajax(settings).done(function (data) {
+        if(data.code==0){
+            var html = "<option value=''></option>";
+            for(var i=0;i<data.row.length;i++){
+                html+= "<option value='"+data.row[i].id+"'>"+data.row[i].name+"</option>"
+            }
+            $("#unit_second").html(html);
+        }else {
+            win.alert("提示",data.msg)
+        }
 
-
-//头部下拉框点击选择哪个单位显示哪个单位的数据
-//异步拼接的元素，在这里是获取不到的
-// console.log($oli);
-// $oli.click(function(){
-//     $this = $(this);
-//     getUserList( $this.attr("class"))
-// });
-//
-
-
-
+    })
+}

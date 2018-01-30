@@ -305,6 +305,8 @@ html {
     margin-left:10px;
 }
 
+
+
 .pitch{
 background:#eee;
 }
@@ -313,5 +315,68 @@ background:#eee;
     text-decoration: none;
     /*background-color: #2b2b2b;*/
 }
+.box{
+    z-index: 9;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+.tianjia{
+    width: 350px;
+    height:426px;
+    background: #fff;
+    border-radius:5px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-175px;
+    margin-top:-213px;
+    overflow: hidden;
 
+}
 
+.tianjia li{
+    list-style:none;
+    height:30px;
+    line-height: 30px;
+}
+.tianjia select{
+    height:26px;
+    width: 178px;
+}
+.tianjia_div{
+    padding:0 30px 30px 30px;
+    height: 400px;
+    overflow-x: auto;
+}
+
+.tianjia_div span{
+    display: inline-block;
+    width:98px;
+}
+
+.tianjia_div input[type=text]{
+    width:178px;
+    border-radius: 5px;
+    border:1px solid #cdcdcd;
+    height:26px;
+}
+
+.tianjia_div input[type=date]{
+    width:178px;
+    border-radius: 5px;
+    border:1px solid #cdcdcd;
+    height:26px;
+}
+
+.tianjia p{
+    color: #fff;
+    font-size: 18px;
+    background: #2C6DBD;
+    text-align: center;
+    height: 30px;
+    line-height:30px;
+}

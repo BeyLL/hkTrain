@@ -209,7 +209,7 @@
                                 <span onclick="delAll()" style="cursor: pointer;" class="label label-primary">批量删除</span>
                             </div>
                         </div>
-                        <div class="personList">
+                        <div class="personList perRecord">
                             <div style="overflow-x: auto;">
                                 <table class="table table-bordered " id="infomation">
                                    
@@ -269,26 +269,36 @@
                 dataArr.push($('#infomation input[type=checkbox]').eq(i).val());
             }
         }
-        $.ajax({
-            url: '/delete_plan',
-            type: 'POST',
-            data: {
-                user: readData("USER_KEY").name,
-                token: readData("USER_KEY").token,
-                id:JSON.stringify(dataArr)
-            },
-            success: function(data) {
-                if(data.code ==0){
-                    win.alert("提示",data.msg);
-                    hquser();
-                }else{
-                    win.alert("提示",data.msg);
-                }
-            },
-            error: function(data) {
-                console.log(data);
+        if(dataArr.length==0){
+            win.alert('提示', '请勾选要删除的计划或指示')
+        }
+        win.confirm("提示","确认删除无法恢复?",function(r){
+            if(r==true){
+                $.ajax({
+                    url: '/delete_plan',
+                    type: 'POST',
+                    data: {
+                        user: readData("USER_KEY").name,
+                        token: readData("USER_KEY").token,
+                        id:JSON.stringify(dataArr)
+                    },
+                    success: function(data) {
+                        if(data.code ==0){
+                            win.alert("提示",data.msg);
+                            hquser();
+                        }else{
+                            win.alert("提示",data.msg);
+                        }
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            }else{
+                return false;
             }
-        });
+        })
+
     }
 
     /*新增里的上传*
