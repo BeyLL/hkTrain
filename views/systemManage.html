@@ -45,15 +45,17 @@
                         <div class="detail_left">
                             <span>所属单位 </span>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    一级单位 <span class="caret"></span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" id="top">
+                                    <span>一级单位</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" id="stair">
                                 </ul>
                             </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    二级单位 <span class="caret"></span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" id="secondary">
+                                    <span>二级单位</span><span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" id="second">
                                 </ul>
@@ -144,11 +146,11 @@
                                         <th style="font-size: 15px;" data-colspan="2">二级单位</th>
                                     <tr>
                                     <tr>
-                                        <th  style="font-size: 15px;"></th>
-                                        <th  style="font-size: 15px;">项目名称</th>
-                                        <th  style="font-size: 15px;">项目权重</th>
-                                        <th  style="font-size: 15px;">项目名称</th>
-                                        <th  style="font-size: 15px;">项目权重</th>
+                                        <th style="font-size: 15px;"></th>
+                                        <th style="font-size: 15px;">项目名称</th>
+                                        <th style="font-size: 15px;">项目权重</th>
+                                        <th style="font-size: 15px;">项目名称</th>
+                                        <th style="font-size: 15px;">项目权重</th>
                                     </tr>
                                     </thead>
                                     <tbody class="content">
@@ -193,18 +195,23 @@
                                 <div style="float: right;padding:0px 29px">
                                     <p style="box-sizing: border-box">
                                         <button onclick="first()" class="btn btn-primary btn-sm" id="sy">第一页</button>
-                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页</button>
-                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页</button>
+                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页
+                                        </button>
+                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页
+                                        </button>
                                         <button onclick="last()" class="btn btn-primary btn-sm" id="my">最后一页</button>
-                                        共<span style="text-align: center;width:45px;display: inline-block;" id="tiaoshu"></span>条，
+                                        共<span style="text-align: center;width:45px;display: inline-block;"
+                                               id="tiaoshu"></span>条，
                                         每页<select onchange="selectPageSize()" name="" id="pagesize">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
                                     </select>条,
-                                        第<span style="text-align: center;width:74px;display: inline-block;" id="pageNum"></span>页
-                                        <input style="width: 50px;" id="ty" value="" />
-                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定</button>
+                                        第<span style="text-align: center;width:74px;display: inline-block;"
+                                               id="pageNum"></span>页
+                                        <input style="width: 50px;" id="ty" value=""/>
+                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定
+                                        </button>
                                     </p>
                                 </div>
                             </div>
@@ -212,7 +219,12 @@
                                 <div style="overflow-x: auto;">
                                     <table class="table table-bordered ">
                                         <thead>
-                                        <tr style='background: #1458a7;color: #fff'><th style="white-space: nowrap;font-size: 15px;">序号</th><th style="white-space: nowrap;font-size: 15px;">用户角色</th><th style="white-space: nowrap;font-size: 15px;">权限</th><th style="white-space: nowrap;font-size: 15px;">操作</th></tr>
+                                        <tr style='background: #1458a7;color: #fff'>
+                                            <th style="white-space: nowrap;font-size: 15px;">序号</th>
+                                            <th style="white-space: nowrap;font-size: 15px;">用户角色</th>
+                                            <th style="white-space: nowrap;font-size: 15px;">权限</th>
+                                            <th style="white-space: nowrap;font-size: 15px;">操作</th>
+                                        </tr>
                                         </thead>
                                         <tbody class="content" id="actionList"></tbody>
                                     </table>
@@ -220,18 +232,23 @@
                                 <div style="float: right;padding:0px 29px">
                                     <p style="box-sizing: border-box">
                                         <button onclick="first()" class="btn btn-primary btn-sm" id="sy">第一页</button>
-                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页</button>
-                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页</button>
+                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页
+                                        </button>
+                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页
+                                        </button>
                                         <button onclick="last()" class="btn btn-primary btn-sm" id="my">最后一页</button>
-                                        共<span style="text-align: center;width:45px;display: inline-block;" id="tiaoshu"></span>条，
+                                        共<span style="text-align: center;width:45px;display: inline-block;"
+                                               id="tiaoshu"></span>条，
                                         每页<select onchange="selectPageSize()" name="" id="pagesize">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
                                     </select>条,
-                                        第<span style="text-align: center;width:74px;display: inline-block;" id="pageNum"></span>页
-                                        <input style="width: 50px;" id="ty" value="" />
-                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定</button>
+                                        第<span style="text-align: center;width:74px;display: inline-block;"
+                                               id="pageNum"></span>页
+                                        <input style="width: 50px;" id="ty" value=""/>
+                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定
+                                        </button>
                                     </p>
                                 </div>
                             </div>
@@ -253,18 +270,23 @@
                                 <div style="float: right;padding:0px 29px">
                                     <p style="box-sizing: border-box">
                                         <button onclick="first()" class="btn btn-primary btn-sm" id="sy">第一页</button>
-                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页</button>
-                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页</button>
+                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syy">上一页
+                                        </button>
+                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyy">下一页
+                                        </button>
                                         <button onclick="last()" class="btn btn-primary btn-sm" id="my">最后一页</button>
-                                        共<span style="text-align: center;width:45px;display: inline-block;" id="tiaoshu"></span>条，
+                                        共<span style="text-align: center;width:45px;display: inline-block;"
+                                               id="tiaoshu"></span>条，
                                         每页<select onchange="selectPageSize()" name="" id="pagesize">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
                                     </select>条,
-                                        第<span style="text-align: center;width:74px;display: inline-block;" id="pageNum"></span>页
-                                        <input style="width: 50px;" id="ty" value="" />
-                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定</button>
+                                        第<span style="text-align: center;width:74px;display: inline-block;"
+                                               id="pageNum"></span>页
+                                        <input style="width: 50px;" id="ty" value=""/>
+                                        <button onclick="selectByPage()" id="tz" class="btn btn-primary btn-sm">确定
+                                        </button>
                                     </p>
                                 </div>
                             </div>
