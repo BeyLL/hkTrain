@@ -33,7 +33,7 @@
                     <li class="foot">首页</li>
                     <li><a href="person.html" style="color:#fff">人员管理</a></li>
                     <li><a href="score.html" style="color:#fff">成绩管理</a></li>
-                    <li><a href="infomation.html" style="color:#fff">信息资料</a></li>
+                    <li><a href="infomation.html" style="color:#fff" class="pitch">信息资料</a></li>
                     <li><a href="course.html" style="color:#fff">远程教学</a></li>
                     <li><a href="testScore.html" style="color:#fff">远程考核</a></li>
                     <li><a href="systemManage.html" style="color:#fff">系统管理</a></li>
@@ -308,8 +308,9 @@
     function upload() {
         $('#users').val(readData('USER_KEY').name);
         $('#tokens').val(readData('USER_KEY').token);
-        var formData = new FormData($("#uploadForms")[0]);
-        console.log();
+//        var formData = new FormData($("#uploadForms")[0]);
+        var formData = new FormData();
+        formData.append($("#file").get(0).files[0]);
         $.ajax({
             url: "/uploadSingle",
             type: 'POST',
@@ -336,8 +337,11 @@
     function uploads() {
         $('#user').val(readData('USER_KEY').name);
         $('#token').val(readData('USER_KEY').token);
-        var formData = new FormData($("#uploadFormes")[0]);
-        console.log(formData)
+//        var formData = new FormData($("#uploadFormes")[0]);
+        var formData = new FormData();
+        var file = $("#file").get(0).files[0];
+        formData.append("file",file)
+        console.log(formData);
         $.ajax({
             url: '/uploadSingle',
             type: 'POST',

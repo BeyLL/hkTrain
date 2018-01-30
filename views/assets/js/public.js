@@ -1,115 +1,19 @@
 /**
  * Created by nealZhang on 2018/1/22.
  */
-
-
-
 var obj = readData("USER_KEY");
 var user = obj.name;
 var token = obj.token;
+
+var $oli;
 //登录的是谁，我获取的就是谁
-function getRole(){
-    var data = {
-        url:
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var $ul = $("#stair");
-var id;
-//获取一级单位,在这里获取的其实是二级单位
-getFirstUnit();
-function getFirstUnit() {
-    var data = {
-        user: user,
-        token: token,
-        pid: 1
-    };
-    $.ajax({
-        url: "/getfirstUnit",
-        type: "POST",
-        data: data,
-        success: function (result) {
-            //获取到的真实数据
-            var res = result.row;
-            // var res = [{id:0,name:'一旅',pid:1},{id:0,name:'二旅',pid:1},{id:0,name:'三旅',pid:1},{id:0,name:'四旅',pid:1}]
-            for (var i = 0; i < res.length; i++) {
-                $ul.append($("<li></li>").addClass("" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
-            }
-
-            var $lis = $("#stair li");
-            $lis.click(function () {
-                $this = $(this);
-                $(".detail .detail_left #top span").first().html($this.children().html()+"");
-                var obj = $this.attr("class");
-                getSubUnit(parseFloat(obj))
-
-            })
-
-        }
-    })
-
-}
-
-
-
-function getSubUnit(id) {
-    var $ul1 = $("#second");
-    $("#second").empty();
-    var data = {
-        user: user,
-        token: token,
-        pid: id
-    };
-    $.ajax({
-        url: "/getUnit",
-        type: "POST",
-        data: data,
-        success: function (result) {
-            //获取到的真实数据
-            console.log(result);
-            var res = result.row;
-            for(var i=0;i<res.length;i++){
-               $ul1.append($("<li></li>").append($("<a></a>").attr("href","#").html(""+res[i].name)));
-            }
-            var $lis = $("#second li");
-            $lis.click(function () {
-                $this = $(this);
-                $(".detail .detail_left #secondary span").first().html($this.children().html()+"");
-                var obj = $this.attr("class");
-                getSubUnit(parseFloat(obj))
-            })
-
-        }
-    })
-}
-
-// var result = [];
-var flag = false,
-    bg = 0;
 function getrole() {
     var data = {};
     data.user = readData("USER_KEY").name;
     data.token = readData("USER_KEY").token;
     data = JSON.stringify(data);
     $.ajax({
-        url: "/checkUserPermissionByName",
+        url: "/getUnit",
         type: "post",
         dataType: "json",
         async: false,
@@ -119,7 +23,8 @@ function getrole() {
         success: function (data) {
             console.log(data);
             if (data.code == 0) {
-                console.log()
+                var res = data.row[0];
+                getFirstUnit(res.id)
             } else {
                 win.alert("提示", data.msg);
             }
@@ -132,153 +37,86 @@ function getrole() {
     })
 }
 getrole();
+var $ul = $("#stair");
+var id;
+//获取一级单位,在这里获取的其实是二级单位
 
-// getUnit();
-//
-// //pidshi用来获取二级数据的
-// function getUnit() {
-//     $.ajax({
-//         url: "/getUnit",
-//         type: "post",
-//         dataType: "json",
-//         // async:false,
-//         data: null,
-//         timeOut: 10000,
-//         success: function (data) {
-//             console.log(data);
-//             if (data.code == 0) {
-//                 var result = data.row;
-//                 if (window.location)
-//                     var $ul = $(".introduce .nav");
-//                 for (var i = 0; i < result.length; i++) {
-//                     var $li = $("<li></li>");
-//                     $li.append($("<div></div>").addClass("left").css("width", "180px").append($("<img/>").attr("src", "../assets/images/soldier.png")).append($("<span></span>").html("" + result[i].name))).append($("<div></div>").addClass("right").append($("<span></span>").addClass("icon-youjiantou iconfont")).attr("onclick", "openFirst(" + i + "," + result[i].id + ")")).append($("<ul></ul>").addClass("menu commands"));
-//                     $ul.append($li);
-//                 }
-//             } else {
-//                 alert(data.msg);
-//             }
-//         },
-//         error: function (XMLHttpRequest, textStatus, errorThrown) {
-//             console.log(XMLHttpRequest);
-//             console.log(textStatus);
-//             console.log(errorThrown);
-//         }
-//     })
-// }
+function getFirstUnit(id) {
+    var data = {
+        user: user,
+        token: token,
+        pid: id
+    };
+    $.ajax({
+        url: "/getfirstUnit",
+        type: "POST",
+        data: data,
+        success: function (result) {
+            //获取到的真实数据
+            console.log(result);
+            var res = result.row;
+            if(res.length>0){
+                for (var i = 0; i < res.length; i++) {
+                    $ul.append($("<li></li>").addClass("" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
+                }
 
+                var $lis = $("#stair li");
+                $lis.click(function () {
+                    $this = $(this);
+                    $(".detail .detail_left #top span").first().html($this.children().html() + "");
+                    var obj = $this.attr("class");
+                    getUserList( parseFloat(obj));
+                    getSubUnit(parseFloat(obj))
 
-// function openFirst(type, id) {
-//
-// var $span = $('.introduce .nav  .right span');
-//
-// getSecond(type, id);//如果这个type值跟上一次的type是一样的，那么这个方法就不会执行
-//
-// if (!flag) {
-//     for (var j = 0; j < $span.length; j++) {
-//         if (type == j) {
-//             $(".menu").eq(type).css({"display": "block"});
-//             $span.eq(type).removeClass("icon-youjiantou iconfont").addClass("icon-youjiantou-copy iconfont");
-//         } else {
-//             bg = 0;
-//         }
-//     }
-//     flag = true;
-//
-// } else {
-//     for (var i = 0; i < $span.length; i++) {
-//         if (i == type) {
-//             $(".menu").eq(type).css({"display": "none"});
-//             $span.eq(type).removeClass("icon-youjiantou-copy iconfont").addClass("icon-youjiantou iconfont");
-//         } else {
-//
-//         }
-//     }
-//
-//     flag = !flag;
-// }
+                })
+            }else{
+                    $("#top span").first().html("一级单位")
+            }
 
-// }
+        }
+    })
 
-//
-// function getSecond(type, id) {
-//
-//     var $span = $('.introduce .nav li  .right span');
-//     console.log($span);
-//
-//
-//     if ($span.eq(type).attr("display") == 'block') {
-//         return;
-//     }
-//     var obj = readData("USER_KEY");
-//     var username = obj.name;
-//     var token = obj.token;
-//     console.log(username, token, id);
-//     var data = {
-//         user: username,
-//         token: token,
-//         pid: id
-//     };
-//
-//
-//     $.ajax({
-//         url: '/getfirstUnit',
-//         type: "POST",
-//         data: data,
-//         success: function (res) {
-//             var counts = res.row;
-//             var $uls = $(".introduce .nav li .menu");
-//             for (var i = 0; i < counts.length; i++) {
-//                 var $li = $("<li></li>");
-//                 $li.append($("<div></div>").addClass("left").css("width", "154px").append($("<img/>").attr("src", "../assets/images/soldier.png")).append($("<span></span>").html("" + counts[i].name))).append($("<div></div>").addClass("right").append($("<span></span>").addClass("icon-youjiantou iconfont")).attr("onclick", "openSecond(" + i + "," + counts[i].id + ")")).append($("<ul></ul>").attr("class", "base"));
-//
-//                 $uls.eq(type).append($li);
-//             }
-//
-//         }
-//     })
-// }
-//
-// //获取第三级数据
-// function getThird(type, id) {
-//     var obj = readData("USER_KEY");
-//     console.log(obj);
-//     var username = obj.name;
-//     var token = obj.token;
-//     console.log(username, token, id);
-//     var data = {
-//         user: username,
-//         token: token,
-//         pid: id
-//     };
-//     $.ajax({
-//         url: "/getfirstUnit",
-//         type: "POST",
-//         data: data,
-//         success: function (res) {
-//             var base = res.row;
-//             var $ul = $(".commands li .base");
-//             for (var i = 0; i < base.length; i++) {
-//                 console.log(base);
-//                 var $li = $("<li></li>");
-//                 $li.append($("<div></div>").addClass("left").css("width", "110px").append($("<img/>").attr("src", "../assets/images/soldier.png")).append($("<span></span>").html("" + base[i].name))).attr("onclick", "openThird(" + i + "," + base[i].id + ")");
-//                 $ul.eq(type).append($li)
-//             }
-//         }
-//     })
-// }
+}
 
 
-// function openSecond(type, id) {
-//     getThird(type, id)
-// }
-//
+function getSubUnit(id) {
+    var $ul1 = $("#second");
+    $("#second").empty();
+    var data = {
+        user: user,
+        token: token,
+        pid: id
+    };
+    $.ajax({
+        url: "/getfirstUnit",
+        type: "POST",
+        data: data,
+        success: function (result) {
+            //获取到的真实数据
+            console.log(result);
+            var res = result.row;
+            if(res.length>0){
+                for (var i = 0; i < res.length; i++) {
+                    $ul1.append($("<li></li>").append($("<a></a>").attr("href", "#").html("" + res[i].name)));
+                }
+                var $lis = $("#second li");
+                $lis.click(function () {
+                    $this = $(this);
+                    $(".detail .detail_left #secondary span").first().html($this.children().html() + "");
+                    var obj = $this.attr("class");
+                    getSubUnit(parseFloat(obj))
+                })
+            }else{
+                $("#secondary span").first().html("二级单位");
+            }
 
-// function openThird(type, id) {
-//     // getLimitLists(type, id)
-//     // window.location.href = 'person.html'
-// }
+        }
+    })
+}
 
+
+var flag = false,
+    bg = 0;
 function logout() {
     win.confirm('提示', '确认退出？', function (r) {
         if (r == true) {
@@ -359,7 +197,7 @@ function choiceBox() {
 //各个页面跳回首页
 $(".introduce .foot").click(function () {
     window.location.href = 'shouye.html'
-})
+});
 
 
 //切换选项卡
@@ -367,7 +205,13 @@ var $lis = $(".design .nav li");
 $lis.click(function () {
     $this = $(this);
     $this.addClass("active").siblings().removeClass("active")
-})
+});
 
 
+//左侧导航栏默认样式的切换
 
+var $choice = $(".introduce .nav li a");
+$choice.splice(0, 1);
+$choice.click(function () {
+    $this.addClass("pitch").parents().child().removeClass("pitch")
+});

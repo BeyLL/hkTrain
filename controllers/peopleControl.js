@@ -34,7 +34,7 @@ exports.getPeople = function (req,res,next) {
                         for (var i = 0; i < row.length; i++) {
                             dataArr.push(row[i].attrName);
                         }
-                        if (unit_first == -1 && unit_second==-1) {  //  查所有单位的人员
+                        if ((unit_first == -1 && unit_second==-1)||(unit_first==1&&unit_second==-1)) {  //  查所有单位的人员
                             getData.select_data_orderby("t_person", dataArr, null, null, null, null, page, pageSize, function (err, data) {
                                 if (err) {
                                     console.log(err.message);
