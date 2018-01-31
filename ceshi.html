@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="views/assets/js/jquery-2.2.4.js"></script>
+    <script src="views/assets/js/echarts.js"></script>
+    <style>
+        body,html{
+            width: 99%;
+            height: 99%;
+            font-family: "微软雅黑";
+            font-size: 12px;
+        }
+        #bar{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+<div id="bar"></div>
 
-    <select>
+<select>
         <option value="贵阳">贵阳</option>
         <option value="六盘水">六盘水</option>
         <option value="都匀">都匀</option>
@@ -18,5 +32,54 @@
         <option value="凯里">凯里</option>
         <option value="毕节">毕节</option>
     </select>
+
+    <script>
+        $(function(){
+            var chart = document.getElementById('bar');
+            var echart = echarts.init(chart);
+
+            var option = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['植树数量']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: true,
+                    data: ['周一','周二','周三','周四','周五','周六','周日']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'植树数量',
+                        type:'bar',
+                        stack: '植树数量',
+                        data:[34, 12, 56, 27, 42, 87, 62]
+                    }
+                ]
+            };
+
+            echart.setOption(option);
+        });
+    </script>
+
 </body>
 </html>

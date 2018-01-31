@@ -6,6 +6,7 @@ var user = obj.name;
 var token = obj.token;
 
 var $oli;
+var bt;
 //登录的是谁，我获取的就是谁
 function getrole() {
     var data = {};
@@ -41,7 +42,7 @@ var $ul = $("#stair");
 var id;
 var first;
 var sec;
-var bt;
+var bt = true;
 //获取一级单位
 
 function getFirstUnit(id) {
@@ -74,10 +75,12 @@ function getFirstUnit(id) {
                     // getSubUnit(parseFloat(obj))
                     var connect = window.location.href;
                     if(connect.indexOf('person.html')!=-1){
+                        getUserList( parseFloat(first));
                         getSubUnit(parseFloat(first))
+
                     }else if(connect.indexOf('score.html')!=-1){
+                        bt = false;
                         getSroreList(parseFloat(first));
-                        var bt = false
                         getSubUnit(parseFloat(first))
                     }
                 })

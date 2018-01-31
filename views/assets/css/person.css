@@ -168,7 +168,7 @@ html {
 }
 
 .container .detail .detail_footer .footer_content {
-    position: relative;
+    /*position: relative;*/
     margin: 10px 25px 30px 10px;
     height: 83%;
     background: #fff;
@@ -261,9 +261,9 @@ html {
     display: inline-block;
 }
 
-.dis {
-    display: none;
-}
+/*.dis {*/
+    /*display: none;*/
+/*}*/
 
 .show_search {
     padding: 10px;
@@ -379,4 +379,9 @@ html {
     text-align: center;
     height: 30px;
     line-height: 30px;
+}
+
+
+.score_hide{
+    display:none
 }

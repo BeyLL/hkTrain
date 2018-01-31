@@ -566,3 +566,108 @@ function changes() {
 
     })
 }
+
+//选项卡切换
+var $li = $(".design ul li");
+var $content = $(".footer_content");
+$li.click(function () {
+    $this = $(this);
+    var index = $li.index($this);
+    $content.eq(index).removeClass("score_hide").siblings().addClass('score_hide')
+});
+
+//echarts图表
+// 基于准备好的dom，初始化echarts实例
+
+
+var data = ['一营','二营','三营','四营']
+var myChart = echarts.init(document.getElementById('someChart'));
+
+// 指定图表的配置项和数据
+var option = {
+    title: {
+        // text: '成绩图表'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    // legend: {
+    //     data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+    // },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '5%',
+        right: '8%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            data : data
+        }
+    ],
+    yAxis : [
+        {
+            name : '分数',
+            type : 'value',
+        },
+    ],
+    series : [
+        {
+            name:'成绩',
+            type:'line',
+            stack: '总和',
+            data:[2000,2140,31430,14301]
+        },
+        // {
+        //     name:'联盟广告',
+        //     type:'line',
+        //     stack: '总量',
+        //     areaStyle: {normal: {}},
+        //     data:[220, 182, 191, 234, 290, 330, 310]
+        // },
+        // {
+        //     name:'视频广告',
+        //     type:'line',
+        //     stack: '总量',
+        //     areaStyle: {normal: {}},
+        //     data:[150, 232, 201, 154, 190, 330, 410]
+        // },
+        // {
+        //     name:'直接访问',
+        //     type:'line',
+        //     stack: '总量',
+        //     areaStyle: {normal: {}},
+        //     data:[320, 332, 301, 334, 390, 330, 320]
+        // },
+        // {
+        //     name:'搜索引擎',
+        //     type:'line',
+        //     stack: '总量',
+        //     label: {
+        //         normal: {
+        //             show: true,
+        //             position: 'top'
+        //         }
+        //     },
+        //     areaStyle: {normal: {}},
+        //     data:[820, 932, 901, 934, 1290, 1330, 1320]
+        // }
+    ]
+};
+
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);

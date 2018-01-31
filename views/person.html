@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/person.css">
+    <link rel="stylesheet" href="assets/css/personAdd.css">
+    <link rel="stylesheet" href="assets/css/scoreAnalyze.css">
     <link rel="stylesheet" href="assets/js/alert/window.css">
     <link rel="stylesheet" href="assets/fontSize/iconfont.css">
     <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="assets/js/localStorageUtils.js"></script>
     <script type="text/javascript" src="assets/js/alert/window.js"></script>
+    <script type="text/javascript" src="assets/js/echarts.js"></script>
 </head>
 <body>
 <!--顶部logo-->
@@ -72,7 +75,7 @@
                     </div>
                 </div>
                 <div class="detail_footer">
-                    <div class="footer_content" style="overflow-x: auto">
+                    <div class="footer_content">
                         <div class="query clear">
                             <div class="query_left">
                                 <div class="btn-group">
@@ -365,7 +368,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="overflow-x: auto;height:380px">
+                            <div style="overflow-x: auto;height:250px">
                                 <table class="table table-bordered " id="peopleHtml">
                                     <thead>
                                     <tr style='background: #1458a7;color: #fff' id="attr"></tr>
@@ -388,8 +391,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="personList dis" id="chart">
-                        我是图表
+                    <div class="footer_content score_hide">
+                        <div class="process">
+                            <span>人员管理</span>
+                            <span class="icon-youjiantou1 iconfont"></span>
+                            <span>展示</span>
+                        </div>
+                        <div class="person_ana" style="margin-top:60px">
+                            <div id="someChart" style="width:800px;height:280px"></div>
+                        </div>
                     </div>
                 </div>
             </div>
