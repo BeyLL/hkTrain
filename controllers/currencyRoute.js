@@ -62,8 +62,9 @@ exports.diplay_chart = function (req,res,next) {
         permiss.checkMobile2Token(user,token,function (data) {
             if(data){
                 var condition = body.condition || null,             //查询的字段名（例如性别、民族、文化程度等）
-                    unit_frist = body.unit_frist ||null,
-                    unit_second = body.unit_second ||null;
+                    unit_frist = body.unit_frist ||-1,
+                    unit_second = body.unit_second ||-1;
+                console.log(condition);
                 getData.select_data_chart("t_person",condition,"unit_frist",unit_frist,"unit_second",unit_second,function (err,data) {
                     if(data){
                         console.log(data);
@@ -82,9 +83,9 @@ exports.diplay_chart = function (req,res,next) {
                             kkk.Percentage=Percentage;
                             perData.push(kkk);
                         }
-                        console.log(perData);
-                        return res.end(JSON.stringify({'code': 0, 'msg': " 查询数据成功","row": perData}));
+                        return res.end(JSON.stringify({'code': 0, 'msg': " 查询数据成功","row": perData,"data":data,"total":sum}));
                     }else{
+                        console.log(err.message)
                         res.json({ "code": 100, "msg":"查询数据库错误"});
                     }
                 })

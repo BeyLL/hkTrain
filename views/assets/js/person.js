@@ -598,8 +598,69 @@ for (var i = 0; i < field.length; i++) {
 
 //echarts图表的切换，折线图、饼状图、柱状图。
 
+
+var $fie = $("#field");
+console.log($fie);
+$fie.change(function () {
+    $this = $(this);
+    var dataMo = $this.val();
+
+})
+
+echart("sex");
+//获取图表字段
+function echart(condition,firstId,secondId) {
+    var user = obj.name;
+    var token = obj.token;
+    condition = condition;
+    var datas = {
+        user:user,
+        token:token,
+        condition:condition,
+        unit_first:firstId,
+        unit_second:secondId
+    };
+    datas = JSON.stringify(datas);
+    $.ajax({
+        url: "/diplay_chart",
+        type: "post",
+        dataType: "json",
+        async: false,
+        headers: {'Content-Type': 'application/json'},
+        data: datas,
+        timeOut: 10000,
+        success: function (data) {
+            console.log(data);
+            if (data.code == 0) {
+                // win.alert('提示', data.msg, function (r) {
+                //     history.go(0);
+                // });
+            } else {
+                win.alert('提示', data.msg);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    })
+    // $.ajax({
+    //     url:"/diplay_chart",
+    //     type:"POST",
+    //     data:datas,
+    //     success:function(result){
+    //             console.log(result);
+    //     },
+    //     error:function (err) {
+    //         console.log(err)
+    //     }
+    // })
+}
+
+
 //只要切换就调这个方法就行
-bulidEchart();
+// bulidEchart();
 function bulidEchart(data, name) {
     data = ['男', '女'];
     var myChart = echarts.init(document.getElementById('someChart'));
