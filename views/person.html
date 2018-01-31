@@ -392,13 +392,26 @@
                         </div>
                     </div>
                     <div class="footer_content score_hide">
-                        <div class="process">
-                            <span>人员管理</span>
-                            <span class="icon-youjiantou1 iconfont"></span>
-                            <span>展示</span>
+                        
+                        <div class="process clear">
+                            <div class="pro_left">
+                                <span>人员管理</span>
+                                <span class="icon-youjiantou1 iconfont"></span>
+                                <span>人员图表展示</span>
+                            </div>
+                            <div class="pro_right" style="margin-right:40px">
+                                <select name="field" id="field">
+                                </select>
+                            </div>
+                          
                         </div>
                         <div class="person_ana" style="margin-top:60px">
                             <div id="someChart" style="width:800px;height:280px"></div>
+                            <div class="btn-group" role="group" aria-label="..." style="margin:30px 347px;">
+                                <button type="button" class="btn btn-default">饼状</button>
+                                <button type="button" class="btn btn-default">柱状</button>
+                                <button type="button" class="btn btn-default default">折线</button>
+                            </div>
                         </div>
                     </div>
                 </div>

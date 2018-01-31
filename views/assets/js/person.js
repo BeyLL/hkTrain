@@ -103,7 +103,19 @@ var education = [
     "本科",
     "硕士",
     "博士"
-]
+];
+
+var field = [
+    "性别",
+    "人员类型",
+    "文化程度",
+    "民族",
+    "政治面貌",
+    "籍贯",
+    "特长",
+    "是否单亲",
+    "是否独生",
+];
 
 $("#chart").attr("display", "none");
 //全选功能
@@ -151,12 +163,12 @@ var pageNow = 1;
 var pageSum;
 var pagesize = 10;
 //获取人员
-function getUserList(firstId,secondId) {
+function getUserList(firstId, secondId) {
 
-    if(!firstId){
+    if (!firstId) {
         firstId = readData("USER_KEY").id
     }
-    if(!secondId){
+    if (!secondId) {
         secondId = undefined;
     }
     var settings = {
@@ -165,9 +177,9 @@ function getUserList(firstId,secondId) {
         "async": false,
         "data": {
             user: readData('USER_KEY').name,
-            token:readData("USER_KEY").token,
+            token: readData("USER_KEY").token,
             unit_first: firstId,
-            unit_second:secondId,
+            unit_second: secondId,
             page: pageNow,
             pageSize: pagesize,
         }
@@ -304,25 +316,25 @@ function selectByPage() {
 
 /*删除*/
 function shanchu(id) {
-    var DataArr =[id];
+    var DataArr = [id];
     win.confirm('提示', '确认删除删除后无法恢复', function (r) {
         if (r == true) {
             var settings = {
                 "url": "/delete_people",
                 "method": "POST",
                 "data": {
-                    user:readData("USER_KEY").name,
-                    token:readData("USER_KEY").token,
-                    id:JSON.stringify(DataArr),
+                    user: readData("USER_KEY").name,
+                    token: readData("USER_KEY").token,
+                    id: JSON.stringify(DataArr),
                 },
             };
             $.ajax(settings).done(function (response) {
                 console.log(response);
                 if (response.code == 0) {
-                    win.alert("提示",response.msg);
+                    win.alert("提示", response.msg);
                     getUserList()
                 } else {
-                    win.alert("提示",response.msg);
+                    win.alert("提示", response.msg);
                 }
             });
         } else {
@@ -337,14 +349,14 @@ function diaochu(id) {
 
 }
 function bianji(id) {
-    $(".box").css("display","block");
+    $(".box").css("display", "block");
     var settings = {
         "url": "/getfirstUnit",
         "method": "POST",
         "data": {
-            user:readData("USER_KEY").name,
-            token:readData("USER_KEY").token,
-            pid:1,
+            user: readData("USER_KEY").name,
+            token: readData("USER_KEY").token,
+            pid: 1,
         },
     };
     $.ajax(settings).done(function (response) {
@@ -352,17 +364,17 @@ function bianji(id) {
         if (response.code == 0) {
             var msgs = response.row;
             var html = "<option value=''></option>";
-            for(var i=0;i<msgs.length;i++){
-                html+= "<option value='"+msgs[i].id+"'>"+msgs[i].name+"</option>"
+            for (var i = 0; i < msgs.length; i++) {
+                html += "<option value='" + msgs[i].id + "'>" + msgs[i].name + "</option>"
             }
             $("#unit_first").html(html);
             var settings = {
                 "url": "/getPeopleId",
                 "method": "POST",
                 "data": {
-                    user:readData("USER_KEY").name,
-                    token:readData("USER_KEY").token,
-                    id:id,
+                    user: readData("USER_KEY").name,
+                    token: readData("USER_KEY").token,
+                    id: id,
                 },
             };
             $.ajax(settings).done(function (datas) {
@@ -391,31 +403,31 @@ function bianji(id) {
                         "url": "/getfirstUnit",
                         "method": "POST",
                         "data": {
-                            user:readData("USER_KEY").name,
-                            token:readData("USER_KEY").token,
-                            pid:$("#unit_first option:selected").val(),
+                            user: readData("USER_KEY").name,
+                            token: readData("USER_KEY").token,
+                            pid: $("#unit_first option:selected").val(),
                         },
                     };
                     $.ajax(settings).done(function (data) {
-                        if(data.code==0){
+                        if (data.code == 0) {
                             console.log(data);
                             var html = "<option value=''></option>";
-                            for(var i=0;i<data.row.length;i++){
-                                html+= "<option value='"+data.row[i].id+"'>"+data.row[i].name+"</option>"
+                            for (var i = 0; i < data.row.length; i++) {
+                                html += "<option value='" + data.row[i].id + "'>" + data.row[i].name + "</option>"
                             }
                             $("#unit_second").html(html);
                             $("#unit_second").val(msg.unit_second);
-                        }else {
-                            win.alert("提示",data.msg)
+                        } else {
+                            win.alert("提示", data.msg)
                         }
 
                     })
                 } else {
-                    win.alert("提示",response.msg);
+                    win.alert("提示", response.msg);
                 }
             });
         } else {
-            win.alert("提示",response.msg);
+            win.alert("提示", response.msg);
         }
     });
 
@@ -423,11 +435,11 @@ function bianji(id) {
 }
 //取消
 function cancels() {
-    $(".box").css("display","none");
+    $(".box").css("display", "none");
 }
 //保存
 function keeps() {
-    var data={};
+    var data = {};
     data.unit_first = $("#unit_first").val();
     data.unit_second = $("#unit_second").val();
     data.name = $("#username").val();
@@ -446,31 +458,31 @@ function keeps() {
     data.mobile = $("#mobile").val();
     data.remark = $("#remark").val();
     data.only_child = $("#only_child option:selected").html();
-    if(data.unit_first==""){
-        win.alert("提示","一级单位不能为空");
+    if (data.unit_first == "") {
+        win.alert("提示", "一级单位不能为空");
         return;
     }
-    if(data.unit_second==""){
-        win.alert("提示","二级单位不能为空");
+    if (data.unit_second == "") {
+        win.alert("提示", "二级单位不能为空");
         return;
     }
-    if(data.name==""){
-        win.alert("提示","姓名不能为空");
+    if (data.name == "") {
+        win.alert("提示", "姓名不能为空");
         return;
     }
-    if(data.brith_day==""){
-        win.alert("提示","出生日期不能为空");
+    if (data.brith_day == "") {
+        win.alert("提示", "出生日期不能为空");
         return;
     }
-    if(data.nation==""){
-        win.alert("提示","民族不能为空");
+    if (data.nation == "") {
+        win.alert("提示", "民族不能为空");
         return;
     }
-    if(data.person_type==""){
-        win.alert("提示","人员类型不能为空");
+    if (data.person_type == "") {
+        win.alert("提示", "人员类型不能为空");
         return;
     }
-    var datas ={};
+    var datas = {};
     datas.data = data;
     datas.id = ID;
     datas.user = readData("USER_KEY").name;
@@ -484,10 +496,10 @@ function keeps() {
         headers: {'Content-Type': 'application/json'},
         data: datas,
         timeOut: 10000,
-        success: function (data){
+        success: function (data) {
             console.log(data);
             if (data.code == 0) {
-                win.alert('提示', data.msg,function (r) {
+                win.alert('提示', data.msg, function (r) {
                     history.go(0);
                 });
             } else {
@@ -534,13 +546,13 @@ for (var i = 0; i < nations.length; i++) {
 }
 
 var $ed = $("#search .education .search_right");
-for(var i=0;i<education.length;i++){
-    $ed.append($("<span></span>").html(""+education[i]))
+for (var i = 0; i < education.length; i++) {
+    $ed.append($("<span></span>").html("" + education[i]))
 }
 
 var $pro = $("#search .province ");
-for(var i=0;i<province.length;i++){
-    $pro.append($("<span></span>").html(""+province[i]))
+for (var i = 0; i < province.length; i++) {
+    $pro.append($("<span></span>").html("" + province[i]))
 }
 
 function changes() {
@@ -548,20 +560,20 @@ function changes() {
         "url": "/getfirstUnit",
         "method": "POST",
         "data": {
-            user:readData("USER_KEY").name,
-            token:readData("USER_KEY").token,
-            pid:$("#unit_first option:selected").val(),
+            user: readData("USER_KEY").name,
+            token: readData("USER_KEY").token,
+            pid: $("#unit_first option:selected").val(),
         },
     };
     $.ajax(settings).done(function (data) {
-        if(data.code==0){
+        if (data.code == 0) {
             var html = "<option value=''></option>";
-            for(var i=0;i<data.row.length;i++){
-                html+= "<option value='"+data.row[i].id+"'>"+data.row[i].name+"</option>"
+            for (var i = 0; i < data.row.length; i++) {
+                html += "<option value='" + data.row[i].id + "'>" + data.row[i].name + "</option>"
             }
             $("#unit_second").html(html);
-        }else {
-            win.alert("提示",data.msg)
+        } else {
+            win.alert("提示", data.msg)
         }
 
     })
@@ -576,98 +588,106 @@ $li.click(function () {
     $content.eq(index).removeClass("score_hide").siblings().addClass('score_hide')
 });
 
-//echarts图表
-// 基于准备好的dom，初始化echarts实例
+//图表右侧下拉框生成
+var $pro = $(".pro_right #field");
+for (var i = 0; i < field.length; i++) {
+    var $op = $("<option></option>");
+    $op.html("" + field[i]);
+    $pro.append($op);
+}
 
+//echarts图表的切换，折线图、饼状图、柱状图。
 
-var data = ['一营','二营','三营','四营']
-var myChart = echarts.init(document.getElementById('someChart'));
-
+//只要切换就调这个方法就行
+bulidEchart();
+function bulidEchart(data, name) {
+    data = ['男', '女'];
+    var myChart = echarts.init(document.getElementById('someChart'));
 // 指定图表的配置项和数据
-var option = {
-    title: {
-        // text: '成绩图表'
-    },
-    tooltip : {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            label: {
-                backgroundColor: '#6a7985'
+    var option = {
+        title: {
+            // text: '成绩图表'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
             }
-        }
-    },
-    // legend: {
-    //     data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-    // },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
-    },
-    grid: {
-        left: '5%',
-        right: '8%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : true,
-            data : data
-        }
-    ],
-    yAxis : [
-        {
-            name : '分数',
-            type : 'value',
         },
-    ],
-    series : [
-        {
-            name:'成绩',
-            type:'line',
-            stack: '总和',
-            data:[2000,2140,31430,14301]
+        // legend: {
+        //     data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        // },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
         },
-        // {
-        //     name:'联盟广告',
-        //     type:'line',
-        //     stack: '总量',
-        //     areaStyle: {normal: {}},
-        //     data:[220, 182, 191, 234, 290, 330, 310]
-        // },
-        // {
-        //     name:'视频广告',
-        //     type:'line',
-        //     stack: '总量',
-        //     areaStyle: {normal: {}},
-        //     data:[150, 232, 201, 154, 190, 330, 410]
-        // },
-        // {
-        //     name:'直接访问',
-        //     type:'line',
-        //     stack: '总量',
-        //     areaStyle: {normal: {}},
-        //     data:[320, 332, 301, 334, 390, 330, 320]
-        // },
-        // {
-        //     name:'搜索引擎',
-        //     type:'line',
-        //     stack: '总量',
-        //     label: {
-        //         normal: {
-        //             show: true,
-        //             position: 'top'
-        //         }
-        //     },
-        //     areaStyle: {normal: {}},
-        //     data:[820, 932, 901, 934, 1290, 1330, 1320]
-        // }
-    ]
-};
+        grid: {
+            left: '5%',
+            right: '8%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: true,
+                data: data
+            }
+        ],
+        yAxis: [
+            {
+                name: '数量',
+                type: 'value',
+            },
+        ],
+        series: [
+            {
+                name: '数量',
+                type: 'line',
+                data: [2000, 2140]
+            },
+            // {
+            //     name:'联盟广告',
+            //     type:'line',
+            //     stack: '总量',
+            //     areaStyle: {normal: {}},
+            //     data:[220, 182, 191, 234, 290, 330, 310]
+            // },
+            // {
+            //     name:'视频广告',
+            //     type:'line',
+            //     stack: '总量',
+            //     areaStyle: {normal: {}},
+            //     data:[150, 232, 201, 154, 190, 330, 410]
+            // },
+            // {
+            //     name:'直接访问',
+            //     type:'line',
+            //     stack: '总量',
+            //     areaStyle: {normal: {}},
+            //     data:[320, 332, 301, 334, 390, 330, 320]
+            // },
+            // {
+            //     name:'搜索引擎',
+            //     type:'line',
+            //     stack: '总量',
+            //     label: {
+            //         normal: {
+            //             show: true,
+            //             position: 'top'
+            //         }
+            //     },
+            //     areaStyle: {normal: {}},
+            //     data:[820, 932, 901, 934, 1290, 1330, 1320]
+            // }
+        ]
+    };
 
 
 // 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option);
+    myChart.setOption(option);
+}

@@ -4,6 +4,14 @@
     line-height:50px;
 }
 
+.container .footer_content .process .pro_left{
+    float:left;
+}
+
+.container .footer_content .process .pro_right{
+    float:right;
+}
+
 .container .footer_content .list{
     width:400px;
     margin:30px auto;
