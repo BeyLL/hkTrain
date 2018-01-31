@@ -5,7 +5,6 @@ var async = require("async");
 var permiss = require('../controllers/permissControl');
 
 /************************************人员管理 start ***********************************************/
-
 /**
  * 分页获取人员列表
  * @param req
@@ -22,6 +21,7 @@ exports.getPeople = function (req,res,next) {
     var unit_second =body.unit_second ||-1;
     if(user==-1 || token ==-1 ){
         res.json({"code":100,"msg":"参数错误"});
+        return;
     }
     try {
         permiss.checkMobile2Token(user,token,function (data) {
@@ -34,8 +34,8 @@ exports.getPeople = function (req,res,next) {
                         for (var i = 0; i < row.length; i++) {
                             dataArr.push(row[i].attrName);
                         }
-                        if ((unit_first == -1 && unit_second==-1)||(unit_first==1&&unit_second==-1)) {  //  查所有单位的人员
-                            getData.select_data_orderby("t_person", dataArr, null, null, null, null, page, pageSize, function (err, data) {
+                        if(unit_first==1||(unit_first==-1&&unit_second==-1)){
+                            getData.select_data_orderby("t_person", dataArr, null, null, null, null, page, pageSize, function(err,data) {
                                 if (err) {
                                     console.log(err.message);
                                     res.json({"code": 301, "msg": "查询失败"});
@@ -68,80 +68,185 @@ exports.getPeople = function (req,res,next) {
 
                                 }
                             })
-                        } else if((unit_first==-1 && unit_second!=-1)||(unit_first!=-1&&unit_second==-1)){ //查二级单位或旅的人员
-                            getData.select_data_orderby("t_person", dataArr, ["unit_first"], [unit_first], null, null, page, pageSize, function (err, data) {
-                                if (err) {
-                                    console.log(err.message);
-                                    res.json({"code": 302, "msg": "查询失败"});
-                                } else {
-                                    var sql = "select * from t_person where unit_first =?";
-                                    db.insert([unit_first],sql,function (err,result) {
-                                        if(err){
-                                            console.log(err.message);
-                                            res.json({"code": 302, "msg": "查询失败"});
-                                        }else{
-                                            var sqls = "select * from t_unit";
-                                            db.insert(null,sqls,function (err,date) {
-                                                if (err) {
-                                                    res.json({"code": 304, "msg": "数据查询错误"});
-                                                } else {
-                                                    for (var i = 0; i < data.length; i++) {
-                                                        for (var j = 0; j < date.length; j++) {
-                                                            if (data[i].unit_first == date[j].id) {
-                                                                data[i].unit_first = date[j].name;
-                                                            }
-                                                            if (data[i].unit_second == date[j].id) {
-                                                                data[i].unit_second = date[j].name;
-                                                            }
-                                                        }
-                                                    }
-                                                    res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
-                                                }
-                                            })
-                                        }
-
-                                    })
-
-                                }
-                            })
-                        }else if(unit_first !=-1 && unit_second!=-1){
-                            getData.select_data_orderby("t_person", dataArr, ["unit_first","unit_second"], [unit_first,unit_second], null, null, page, pageSize, function (err, data) {
-                                if (err) {
-                                    console.log(err.message);
-                                    res.json({"code": 303, "msg": "查询失败"});
-                                } else {
-                                    var sql ="select * from t_person where unit_first=? and unit_second =?";
-                                    db.insert([unit_first,unit_second],sql,function (err,result) {
-                                        if(err){
-                                            console.log(err.message);
-                                            res.json({"code": 303, "msg": "查询失败"});
-                                        }else{
-                                            var sqls = "select * from t_unit";
-                                            db.insert(null,sqls,function (err,date) {
-                                                if (err) {
-                                                    res.json({"code": 304, "msg": "数据查询错误"});
-                                                } else {
-                                                    for (var i = 0; i < data.length; i++) {
-                                                        for (var j = 0; j < date.length; j++) {
-                                                            if (data[i].unit_first == date[j].id) {
-                                                                data[i].unit_first = date[j].name;
-                                                            }
-                                                            if (data[i].unit_second == date[j].id) {
-                                                                data[i].unit_second = date[j].name;
-                                                            }
-                                                        }
-                                                    }
-                                                    res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
-                                                }
-                                            })
-                                        }
-                                    })
-
-                                }
-                            })
                         }else if(unit_first!=-1&&unit_second==-1){
-                            res.json({"code":101,"msg":"参数错误"});
+                            getData.select_data_orderby("t_person", dataArr, ["unit_first"], [unit_first],null,null, page, pageSize, function (err, data) {
+                                if (err) {
+                                    console.log(err.message);
+                                    res.json({"code": 301, "msg": "查询失败"});
+                                } else {
+                                    var sql = "select * from t_person";
+                                    db.insert(null,sql,function (err,result) {
+                                        if(err){
+                                            res.json({"code": 304, "msg": "数据查询错误"});
+                                        }else{
+                                            var sqls = "select * from t_unit";
+                                            db.insert(null,sqls,function (err,date) {
+                                                if (err) {
+                                                    res.json({"code": 304, "msg": "数据查询错误"});
+                                                } else {
+                                                    for (var i = 0; i < data.length; i++) {
+                                                        for (var j = 0; j < date.length; j++) {
+                                                            if (data[i].unit_first == date[j].id) {
+                                                                data[i].unit_first = date[j].name;
+                                                            }
+                                                            if (data[i].unit_second == date[j].id) {
+                                                                data[i].unit_second = date[j].name;
+                                                            }
+                                                        }
+                                                    }
+                                                    res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                                                }
+                                            })
+                                        }
+                                    })
+
+                                }
+                            })
+                        }else if(unit_first == -1 && unit_second!=-1){
+                            getData.select_data_orderby("t_person", dataArr, ["unit_second"], [unit_second], null,null,page, pageSize, function (err, data) {
+                                if (err) {
+                                    console.log(err.message);
+                                    res.json({"code": 301, "msg": "查询失败"});
+                                } else {
+                                    var sql = "select * from t_person";
+                                    db.insert(null,sql,function (err,result) {
+                                        if(err){
+                                            res.json({"code": 304, "msg": "数据查询错误"});
+                                        }else{
+                                            var sqls = "select * from t_unit";
+                                            db.insert(null,sqls,function (err,date) {
+                                                if (err) {
+                                                    res.json({"code": 304, "msg": "数据查询错误"});
+                                                } else {
+                                                    for (var i = 0; i < data.length; i++) {
+                                                        for (var j = 0; j < date.length; j++) {
+                                                            if (data[i].unit_first == date[j].id) {
+                                                                data[i].unit_first = date[j].name;
+                                                            }
+                                                            if (data[i].unit_second == date[j].id) {
+                                                                data[i].unit_second = date[j].name;
+                                                            }
+                                                        }
+                                                    }
+                                                    res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                                                }
+                                            })
+                                        }
+                                    })
+
+                                }
+                            })
+                        }else{
+                            res.json({"code": 301, "msg": "死循环"});
                         }
+                        // if ((unit_first == -1 && unit_second==-1)||(unit_first==1 && unit_second==-1)) {  //  查所有单位的人员
+                        //     getData.select_data_orderby("t_person", dataArr, null, null, null, null, page, pageSize, function (err, data) {
+                        //         if (err) {
+                        //             console.log(err.message);
+                        //             res.json({"code": 301, "msg": "查询失败"});
+                        //         } else {
+                        //             var sql = "select * from t_person";
+                        //             db.insert(null,sql,function (err,result) {
+                        //                 if(err){
+                        //                     res.json({"code": 304, "msg": "数据查询错误"});
+                        //                 }else{
+                        //                     var sqls = "select * from t_unit";
+                        //                     db.insert(null,sqls,function (err,date) {
+                        //                         if (err) {
+                        //                             res.json({"code": 304, "msg": "数据查询错误"});
+                        //                         } else {
+                        //                             for (var i = 0; i < data.length; i++) {
+                        //                                 for (var j = 0; j < date.length; j++) {
+                        //                                     if (data[i].unit_first == date[j].id) {
+                        //                                         data[i].unit_first = date[j].name;
+                        //                                     }
+                        //                                     if (data[i].unit_second == date[j].id) {
+                        //                                         data[i].unit_second = date[j].name;
+                        //                                     }
+                        //                                 }
+                        //                             }
+                        //                             res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                        //                         }
+                        //                     })
+                        //                 }
+                        //             })
+                        //
+                        //         }
+                        //     })
+                        // } else if((unit_first==-1 && unit_second!=-1)||(unit_first!=-1 && unit_second==-1)){ //查二级单位或旅的人员
+                        //     getData.select_data_orderby("t_person", dataArr, ["unit_first"], [unit_first], null, null, page, pageSize, function (err, data) {
+                        //         if (err) {
+                        //             console.log(err.message);
+                        //             res.json({"code": 302, "msg": "查询失败"});
+                        //         } else {
+                        //             var sql = "select * from t_person where unit_first =?";
+                        //             db.insert([unit_first],sql,function (err,result) {
+                        //                 if(err){
+                        //                     console.log(err.message);
+                        //                     res.json({"code": 302, "msg": "查询失败"});
+                        //                 }else{
+                        //                     var sqls = "select * from t_unit";
+                        //                     db.insert(null,sqls,function (err,date) {
+                        //                         if (err) {
+                        //                             res.json({"code": 304, "msg": "数据查询错误"});
+                        //                         } else {
+                        //                             for (var i = 0; i < data.length; i++) {
+                        //                                 for (var j = 0; j < date.length; j++) {
+                        //                                     if (data[i].unit_first == date[j].id) {
+                        //                                         data[i].unit_first = date[j].name;
+                        //                                     }
+                        //                                     if (data[i].unit_second == date[j].id) {
+                        //                                         data[i].unit_second = date[j].name;
+                        //                                     }
+                        //                                 }
+                        //                             }
+                        //                             res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                        //                         }
+                        //                     })
+                        //                 }
+                        //
+                        //             })
+                        //
+                        //         }
+                        //     })
+                        // }else if(unit_first !=-1 && unit_second!=-1){
+                        //     getData.select_data_orderby("t_person", dataArr, ["unit_first","unit_second"], [unit_first,unit_second], null, null, page, pageSize, function (err, data) {
+                        //         if (err) {
+                        //             console.log(err.message);
+                        //             res.json({"code": 303, "msg": "查询失败"});
+                        //         } else {
+                        //             var sql ="select * from t_person where unit_first=? and unit_second =?";
+                        //             db.insert([unit_first,unit_second],sql,function (err,result) {
+                        //                 if(err){
+                        //                     console.log(err.message);
+                        //                     res.json({"code": 303, "msg": "查询失败"});
+                        //                 }else{
+                        //                     var sqls = "select * from t_unit";
+                        //                     db.insert(null,sqls,function (err,date) {
+                        //                         if (err) {
+                        //                             res.json({"code": 304, "msg": "数据查询错误"});
+                        //                         } else {
+                        //                             for (var i = 0; i < data.length; i++) {
+                        //                                 for (var j = 0; j < date.length; j++) {
+                        //                                     if (data[i].unit_first == date[j].id) {
+                        //                                         data[i].unit_first = date[j].name;
+                        //                                     }
+                        //                                     if (data[i].unit_second == date[j].id) {
+                        //                                         data[i].unit_second = date[j].name;
+                        //                                     }
+                        //                                 }
+                        //                             }
+                        //                             res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                        //                         }
+                        //                     })
+                        //                 }
+                        //             })
+                        //
+                        //         }
+                        //     })
+                        // }else if(unit_first!=-1&&unit_second==-1){
+                        //     res.json({"code":101,"msg":"参数错误"});
+                        // }
                     } else {
                         res.json({"code": 301, "msg": "查询失败"});
                     }

@@ -601,11 +601,19 @@ $btns.click(function () {
 
 //echarts图表的切换，折线图、饼状图、柱状图。
 var text = '性别';
-echart("sex");
+console.log(obj);
+if(obj.role_id==1){
+    echart("sex");
+}else if(obj.role_id==2){
+    echart("sex",obj.id)
+}else if(obj.role_id==3){
+    echart("sex",undefined,obj.id)
+}
+
 var $fie = $("#field");
 var dataMo;
 $fie.change(function () {
-   $op = $("#field option:selected");
+    $op = $("#field option:selected");
     dataMo = $op.val();
     text = $op.text();
     console.log(text);
@@ -614,13 +622,13 @@ $fie.change(function () {
 
 //获取图表字段
 function echart(condi, firstId, secondId) {
-     if(condi==undefined){
-         if(dataMo){
-             condi = dataMo;
-         }else{
-             condi = "sex"
-         }
-     }
+    if (condi == undefined) {
+        if (dataMo) {
+            condi = dataMo;
+        } else {
+            condi = "sex"
+        }
+    }
     var user = obj.name;
     var token = obj.token;
     var datas = {
@@ -635,22 +643,16 @@ function echart(condi, firstId, secondId) {
         url: "/diplay_chart",
         type: "post",
         data: datas,
-        async: false,
         success: function (data) {
-            console.log(data);
-            data = JSON.parse(data);
+            // console.log(data);
+            // data = JSON.parse(data);
             console.log(data)
             if (data.code == 0) {
                 var result = data.row;
                 var counts = data.data;
-                console.log(result, counts);
                 var res = [];
                 var count = [];
-                // for (var i = 0; i < result.length; i++) {
-                //     res.push(result[i].type);
-                // }
                 var pie = [];
-
                 for (var j = 0; j < counts.length; j++) {
                     var pieObj = {};
                     count.push(counts[j].counts);
@@ -662,8 +664,6 @@ function echart(condi, firstId, secondId) {
                 bulidEchart(res, count, text);
                 bulidPieEchart(pie);
                 bulidBarEchart(res, count)
-            } else {
-
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

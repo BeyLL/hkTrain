@@ -174,6 +174,7 @@ exports.start = function(tb_name,c_filed,d_filed,callback){
  *********************************************/
 exports.select_data_orderby = function(tb_name,c_filed,d_filed,data,code,lift,page,num,callback){
     c_filed = c_filed?c_filed:"*";
+
     var str = '';
     if(d_filed && d_filed.length > 0){
         for(var i=0;i<d_filed.length;i++){
@@ -198,7 +199,7 @@ exports.select_data_orderby = function(tb_name,c_filed,d_filed,data,code,lift,pa
         page = (page - 1)*num;
         sqlselect += " limit " +  page + ","+num
     }
-
+console.log(sqlselect);
     db.insert(null,sqlselect,function(err,data){
         if(err === 0){
             callback(0,data);
@@ -273,15 +274,19 @@ exports.select_data_chart = function (tb_name,data,filed,reson,fileds,datas,call
     console.log(datas)
     data = data?data:"*";
     if(reson ==-1 &&datas ==-1){
+        console.log(1);
         var sqlStrs = "SELECT "+data+ " , count(1) AS counts FROM "+tb_name+" GROUP BY "+data;
         var dataArr =[];
-    }else if(reson && datas){
+    }else if(reson!=-1 && datas!=-1){
+        console.log(2);
         var sqlStrs = "SELECT "+data+ " , count(1) AS counts FROM "+tb_name+" where "+ filed+" = ? and "+ fileds+" = ? GROUP BY "+data;
         var dataArr = [reson,datas];
-    }else if(reson !=null && datas==null){
+    }else if(reson !=-1 && datas==-1){
+        console.log(13);
         var sqlStrs = "SELECT "+data+ " , count(1) AS counts FROM "+tb_name+" where "+ filed+" = ? GROUP BY "+data;
         var dataArr = [reson];
-    }else if(datas !=null && reson==null){
+    }else if(datas !=-1 && reson==-1){
+        console.log(4);
         var sqlStrs = "SELECT "+data+ " , count(1) AS counts FROM "+tb_name+" where "+ fileds+" = ? GROUP BY "+data;
         var dataArr = [datas];
     }

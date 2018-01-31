@@ -5,6 +5,10 @@ var obj = readData("USER_KEY");
 var user = obj.name;
 var token = obj.token;
 
+
+var $hi = $(".header");
+$hi.before($("<div></div>").html("hi,"+user).css({"position":"absolute","right":"60px","top":"21px","color":"#fff","font-size":"18px"}));
+
 var $oli;
 var bt;
 //登录的是谁，我获取的就是谁
@@ -125,6 +129,7 @@ function getSubUnit(id) {
                      }
                      pageNow = 1;
                     getUserList( parseFloat(first),parseFloat(sec));
+                    echart(undefined,undefined,parseFloat(sec));
                 })
             }else{
                 $("#secondary span").first().html("二级单位");
