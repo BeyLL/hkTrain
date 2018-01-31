@@ -21,24 +21,34 @@
       <file leaf-file-name="person.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/assets/js/person.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="626" column="25" lean-forward="true" selection-start-line="626" selection-start-column="25" selection-end-line="626" selection-end-column="25" />
+            <state relative-caret-position="484">
+              <caret line="639" column="30" lean-forward="false" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
               <folding>
-                <marker date="1517370854781" expanded="true" signature="3534:3570" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="3685:3721" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="3803:3839" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="3981:4017" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="4689:4724" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="4824:4859" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="5029:5044" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="5084:5118" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="5211:5217" ph=" " />
-                <marker date="1517370854781" expanded="true" signature="5305:5339" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="5431:5437" ph=" " />
-                <marker date="1517370854781" expanded="true" signature="5527:5543" ph="..." />
-                <marker date="1517370854781" expanded="true" signature="5638:5644" ph=" " />
-                <marker date="1517370854781" expanded="true" signature="7333:7345" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="3534:3570" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="3685:3721" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="3803:3839" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="3981:4017" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="4689:4724" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="4824:4859" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="5029:5044" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="5084:5118" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="5211:5217" ph=" " />
+                <marker date="1517386940913" expanded="true" signature="5305:5339" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="5431:5437" ph=" " />
+                <marker date="1517386940913" expanded="true" signature="5527:5543" ph="..." />
+                <marker date="1517386940913" expanded="true" signature="5638:5644" ph=" " />
+                <marker date="1517386940913" expanded="true" signature="7333:7345" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="public.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/assets/js/public.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="66" column="42" lean-forward="true" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,28 +66,18 @@
       <file leaf-file-name="currencyRoute.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/currencyRoute.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="85" column="125" lean-forward="false" selection-start-line="85" selection-start-column="125" selection-end-line="85" selection-end-column="125" />
+            <state relative-caret-position="-2021">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cameraOperations.js" pinned="false" current-in-tab="false">
-        <entry file="file://E:/xiCheng_project/2018.1.18/xiCheng/js/cameraOperations.js">
+      <file leaf-file-name="ceshi.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ceshi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1320">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dbsql.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/dbsql.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="272" column="22" lean-forward="true" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
+            <state relative-caret-position="1103">
+              <caret line="87" column="19" lean-forward="false" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -86,7 +86,7 @@
       <file leaf-file-name="person.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/assets/css/person.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="816">
               <caret line="149" column="36" lean-forward="false" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="36" />
               <folding />
             </state>
@@ -96,8 +96,8 @@
       <file leaf-file-name="person.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/person.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="396" column="50" lean-forward="true" selection-start-line="396" selection-start-column="50" selection-end-line="396" selection-end-column="50" />
+            <state relative-caret-position="360">
+              <caret line="419" column="45" lean-forward="false" selection-start-line="419" selection-start-column="37" selection-end-line="419" selection-end-column="45" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -113,6 +113,8 @@
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +123,8 @@
       <file leaf-file-name="scoreAnalyze.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/assets/css/scoreAnalyze.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="47" />
+            <state relative-caret-position="943">
+              <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -141,7 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>unit_first</find>
       <find>closese</find>
       <find>des</find>
       <find>hzlength</find>
@@ -171,6 +172,7 @@
       <find>height</find>
       <find>process</find>
       <find>person</find>
+      <find>折线</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -217,16 +219,16 @@
         <option value="$PROJECT_DIR$/controllers/recordControl.js" />
         <option value="$PROJECT_DIR$/views/scoreAnalyze.html" />
         <option value="$PROJECT_DIR$/views/assets/css/person.css" />
-        <option value="$PROJECT_DIR$/ceshi.html" />
         <option value="$PROJECT_DIR$/views/assets/js/score.js" />
-        <option value="$PROJECT_DIR$/views/assets/js/public.js" />
         <option value="$PROJECT_DIR$/views/assets/css/personAdd.css" />
         <option value="$PROJECT_DIR$/views/score.html" />
-        <option value="$PROJECT_DIR$/views/assets/css/scoreAnalyze.css" />
-        <option value="$PROJECT_DIR$/views/person.html" />
         <option value="$PROJECT_DIR$/models/dbsql.js" />
-        <option value="$PROJECT_DIR$/views/assets/js/person.js" />
         <option value="$PROJECT_DIR$/controllers/currencyRoute.js" />
+        <option value="$PROJECT_DIR$/ceshi.html" />
+        <option value="$PROJECT_DIR$/views/person.html" />
+        <option value="$PROJECT_DIR$/views/assets/css/scoreAnalyze.css" />
+        <option value="$PROJECT_DIR$/views/assets/js/public.js" />
+        <option value="$PROJECT_DIR$/views/assets/js/person.js" />
       </list>
     </option>
   </component>
@@ -260,7 +262,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -366,6 +367,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,12 +549,13 @@
       <workItem from="1517192122143" duration="11174000" />
       <workItem from="1517206142474" duration="15956000" />
       <workItem from="1517240256587" duration="19551000" />
-      <workItem from="1517299325599" duration="30930000" />
+      <workItem from="1517299325599" duration="31280000" />
+      <workItem from="1517374201157" duration="12795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="590299000" />
+    <option name="totallyTimeSpent" value="603444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,18 +567,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="1" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16181915" sideWeight="0.49328858" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16181915" sideWeight="0.49328858" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22849463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19328263" sideWeight="0.5067114" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19328263" sideWeight="0.5067114" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -615,7 +617,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/views/assets/js/public.js</url>
-          <line>94</line>
+          <line>95</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -631,28 +633,31 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/views/person.html</url>
           <line>193</line>
-          <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://E:/xiCheng_project/2018.1.18/xiCheng/js/cameraOperations.js</url>
           <line>30</line>
-          <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/assets/js/person.js</url>
+          <line>608</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/assets/js/person.js</url>
+          <line>657</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/assets/css/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/xiCheng/css/comment.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -701,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
           <caret line="29" column="87" lean-forward="false" selection-start-line="29" selection-start-column="87" selection-end-line="29" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +818,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="528">
             <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -835,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="351" column="9" lean-forward="false" selection-start-line="351" selection-start-column="9" selection-end-line="351" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="50" column="69" lean-forward="false" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-648">
           <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,16 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="923">
           <caret line="150" column="13" lean-forward="true" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -913,7 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,7 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="455" column="27" lean-forward="false" selection-start-line="455" selection-start-column="23" selection-end-line="455" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="14" column="80" lean-forward="false" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,27 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="59" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ceshi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1199">
-          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/assets/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="81" column="35" lean-forward="false" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,35 +981,67 @@
         <state relative-caret-position="364">
           <caret line="214" column="38" lean-forward="false" selection-start-line="214" selection-start-column="38" selection-end-line="214" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#li#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#li#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#li#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#li#7;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/assets/css/person.css">
+    <entry file="file://$PROJECT_DIR$/models/dbsql.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="149" column="36" lean-forward="false" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="36" />
+        <state relative-caret-position="6528">
+          <caret line="272" column="22" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/assets/css/scoreAnalyze.css">
+    <entry file="file://E:/xiCheng_project/2018.1.18/xiCheng/js/cameraOperations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="47" />
+        <state relative-caret-position="480">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/编程所需要的库/js及jQuery库/utils .js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/currencyRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2021">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bridge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="145" column="42" lean-forward="true" selection-start-line="145" selection-start-column="42" selection-end-line="145" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ceshi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1103">
+          <caret line="87" column="19" lean-forward="false" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/person.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="396" column="50" lean-forward="true" selection-start-line="396" selection-start-column="50" selection-end-line="396" selection-end-column="50" />
+        <state relative-caret-position="360">
+          <caret line="419" column="45" lean-forward="false" selection-start-line="419" selection-start-column="37" selection-end-line="419" selection-end-column="45" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1061,61 +1057,55 @@
             <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/dbsql.js">
+    <entry file="file://$PROJECT_DIR$/views/assets/css/person.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="272" column="22" lean-forward="true" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="22" />
+        <state relative-caret-position="816">
+          <caret line="149" column="36" lean-forward="false" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bridge.js">
+    <entry file="file://$PROJECT_DIR$/views/assets/css/scoreAnalyze.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="145" column="42" lean-forward="true" selection-start-line="145" selection-start-column="42" selection-end-line="145" selection-end-column="42" />
+        <state relative-caret-position="943">
+          <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/xiCheng_project/2018.1.18/xiCheng/js/cameraOperations.js">
+    <entry file="file://$PROJECT_DIR$/views/assets/js/public.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1320">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/currencyRoute.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="85" column="125" lean-forward="false" selection-start-line="85" selection-start-column="125" selection-end-line="85" selection-end-column="125" />
+        <state relative-caret-position="360">
+          <caret line="66" column="42" lean-forward="true" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/assets/js/person.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="626" column="25" lean-forward="true" selection-start-line="626" selection-start-column="25" selection-end-line="626" selection-end-column="25" />
+        <state relative-caret-position="484">
+          <caret line="639" column="30" lean-forward="false" selection-start-line="639" selection-start-column="30" selection-end-line="639" selection-end-column="30" />
           <folding>
-            <marker date="1517370854781" expanded="true" signature="3534:3570" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="3685:3721" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="3803:3839" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="3981:4017" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="4689:4724" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="4824:4859" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="5029:5044" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="5084:5118" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="5211:5217" ph=" " />
-            <marker date="1517370854781" expanded="true" signature="5305:5339" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="5431:5437" ph=" " />
-            <marker date="1517370854781" expanded="true" signature="5527:5543" ph="..." />
-            <marker date="1517370854781" expanded="true" signature="5638:5644" ph=" " />
-            <marker date="1517370854781" expanded="true" signature="7333:7345" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="3534:3570" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="3685:3721" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="3803:3839" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="3981:4017" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="4689:4724" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="4824:4859" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="5029:5044" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="5084:5118" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="5211:5217" ph=" " />
+            <marker date="1517386940913" expanded="true" signature="5305:5339" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="5431:5437" ph=" " />
+            <marker date="1517386940913" expanded="true" signature="5527:5543" ph="..." />
+            <marker date="1517386940913" expanded="true" signature="5638:5644" ph=" " />
+            <marker date="1517386940913" expanded="true" signature="7333:7345" ph="..." />
           </folding>
         </state>
       </provider>

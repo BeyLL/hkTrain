@@ -430,8 +430,6 @@ function bianji(id) {
             win.alert("提示", response.msg);
         }
     });
-
-
 }
 //取消
 function cancels() {
@@ -588,55 +586,84 @@ $li.click(function () {
     $content.eq(index).removeClass("score_hide").siblings().addClass('score_hide')
 });
 
-//图表右侧下拉框生成
-var $pro = $(".pro_right #field");
-for (var i = 0; i < field.length; i++) {
-    var $op = $("<option></option>");
-    $op.html("" + field[i]);
-    $pro.append($op);
-}
+
+/*-----图表展示逻辑-----*/
+//图表中切换btn
+var $btns = $(".person_ana .btn");
+var $charts = $(".person_ana .chart");
+$btns.click(function () {
+    $this = $(this);
+    var index = $btns.index($this);
+    $this.addClass("default").siblings().removeClass("default");
+    $charts.eq(index).addClass("chart_show").siblings().removeClass("chart_show");
+});
+
 
 //echarts图表的切换，折线图、饼状图、柱状图。
-
-
+var text = '性别';
+echart("sex");
 var $fie = $("#field");
-console.log($fie);
+var dataMo;
 $fie.change(function () {
-    $this = $(this);
-    var dataMo = $this.val();
-
+   $op = $("#field option:selected");
+    dataMo = $op.val();
+    text = $op.text();
+    console.log(text);
+    echart(dataMo)
 })
 
-echart("sex");
 //获取图表字段
-function echart(condition,firstId,secondId) {
+function echart(condi, firstId, secondId) {
+     if(condi==undefined){
+         if(dataMo){
+             condi = dataMo;
+         }else{
+             condi = "sex"
+         }
+     }
     var user = obj.name;
     var token = obj.token;
-    condition = condition;
     var datas = {
-        user:user,
-        token:token,
-        condition:condition,
-        unit_first:firstId,
-        unit_second:secondId
+        user: user,
+        token: token,
+        condition: condi,
+        unit_first: firstId,
+        unit_second: secondId
     };
-    datas = JSON.stringify(datas);
+    console.log(datas);
     $.ajax({
         url: "/diplay_chart",
         type: "post",
-        dataType: "json",
-        async: false,
-        headers: {'Content-Type': 'application/json'},
         data: datas,
-        timeOut: 10000,
+        async: false,
         success: function (data) {
             console.log(data);
+            data = JSON.parse(data);
+            console.log(data)
             if (data.code == 0) {
-                // win.alert('提示', data.msg, function (r) {
-                //     history.go(0);
-                // });
+                var result = data.row;
+                var counts = data.data;
+                console.log(result, counts);
+                var res = [];
+                var count = [];
+                // for (var i = 0; i < result.length; i++) {
+                //     res.push(result[i].type);
+                // }
+                var pie = [];
+
+                for (var j = 0; j < counts.length; j++) {
+                    var pieObj = {};
+                    count.push(counts[j].counts);
+                    res.push(counts[j][condi]);
+                    pieObj.value = counts[j].counts;
+                    pieObj.name = counts[j][condi];
+                    pie.push(pieObj)
+                }
+                bulidEchart(res, count, text);
+                bulidPieEchart(pie);
+                bulidBarEchart(res, count)
             } else {
-                win.alert('提示', data.msg);
+
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -645,29 +672,19 @@ function echart(condition,firstId,secondId) {
             console.log(errorThrown);
         }
     })
-    // $.ajax({
-    //     url:"/diplay_chart",
-    //     type:"POST",
-    //     data:datas,
-    //     success:function(result){
-    //             console.log(result);
-    //     },
-    //     error:function (err) {
-    //         console.log(err)
-    //     }
-    // })
 }
 
 
-//只要切换就调这个方法就行
-// bulidEchart();
-function bulidEchart(data, name) {
-    data = ['男', '女'];
+//折线图
+function bulidEchart(data, counts, name) {
+    option = {};
     var myChart = echarts.init(document.getElementById('someChart'));
-// 指定图表的配置项和数据
-    var option = {
+
+// // 指定图表的配置项和数据
+
+    var option = {  //折线图
         title: {
-            // text: '成绩图表'
+            text: name
         },
         tooltip: {
             trigger: 'axis',
@@ -681,11 +698,11 @@ function bulidEchart(data, name) {
         // legend: {
         //     data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
         // },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
+        // toolbox: {
+        //     feature: {
+        //         saveAsImage: {}
+        //     }
+        // },
         grid: {
             left: '5%',
             right: '8%',
@@ -694,6 +711,7 @@ function bulidEchart(data, name) {
         },
         xAxis: [
             {
+                // name:name,
                 type: 'category',
                 boundaryGap: true,
                 data: data
@@ -701,15 +719,15 @@ function bulidEchart(data, name) {
         ],
         yAxis: [
             {
-                name: '数量',
+                name: "数量",
                 type: 'value',
             },
         ],
         series: [
             {
-                name: '数量',
+                name: "数量",
                 type: 'line',
-                data: [2000, 2140]
+                data: counts
             },
             // {
             //     name:'联盟广告',
@@ -752,3 +770,109 @@ function bulidEchart(data, name) {
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 }
+
+
+//饼状图
+function bulidPieEchart(data) {
+    var myChart = echarts.init(document.getElementById('pieChart'));
+
+// // 指定图表的配置项和数据
+
+//饼状图逻辑
+    var option = {
+        title: {
+            // text: '某站点用户访问来源',
+            // subtext: '纯属虚构',
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            // data: ["性别"]
+        },
+        series: [
+            {
+                name: name,
+                type: 'pie',
+                radius: '80%',
+                center: ['50%', '50%'],
+                // data:[
+                //     // {value:335, name:'直接访问'},
+                //     // {value:310, name:'邮件营销'},
+                //     // {value:234, name:'联盟广告'},
+                //     // {value:135, name:'视频广告'},
+                //     // {value:1548, name:'搜索引擎'}
+                //     {value:330,name:"男"},
+                //     {value:330,name:"女"}
+                // ],
+                data: data,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+
+// 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+}
+
+
+//柱状图
+function bulidBarEchart(data, counts) {
+    var myChart = echarts.init(document.getElementById('barChart'));
+
+// // 指定图表的配置项和数据
+
+    var option = {
+        color: ['#3398DB'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: data,
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '数量',
+                type: 'bar',
+                barWidth: '30%',
+                data: counts
+            }
+        ]
+    };
+
+
+// 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+}
+

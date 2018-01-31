@@ -77,6 +77,7 @@ function getFirstUnit(id) {
                     if(connect.indexOf('person.html')!=-1){
                         getUserList( parseFloat(first));
                         getSubUnit(parseFloat(first))
+                        echart(undefined,parseFloat(first))
 
                     }else if(connect.indexOf('score.html')!=-1){
                         bt = false;

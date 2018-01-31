@@ -401,16 +401,27 @@
                             </div>
                             <div class="pro_right" style="margin-right:40px">
                                 <select name="field" id="field">
+                                    <option value="sex">性别</option>
+                                    <option value="person_type">人员类型</option>
+                                    <option value="education">文化程度</option>
+                                    <option value="nation">民族</option>
+                                    <option value="political_visage">政治面貌</option>
+                                    <option value="origin_place">籍贯</option>
+                                    <option value="specialty">特长</option>
+                                    <option value="single_parent">是否单亲</option>
+                                    <option value="only_child">是否独生</option>
                                 </select>
                             </div>
                           
                         </div>
                         <div class="person_ana" style="margin-top:60px">
-                            <div id="someChart" style="width:800px;height:280px"></div>
-                            <div class="btn-group" role="group" aria-label="..." style="margin:30px 347px;">
+                            <div id="someChart" class="chart chart_show" style="width:800px;height:280px"></div>
+                            <div id="pieChart" class="chart" style="width:800px;height:280px"></div>
+                            <div id="barChart" class="chart" style="width:800px;height:280px"></div>
+                            <div class="btn-group" role="group" style="margin:30px 347px;">
+                                <button type="button" class="btn btn-default default">折线</button>
                                 <button type="button" class="btn btn-default">饼状</button>
                                 <button type="button" class="btn btn-default">柱状</button>
-                                <button type="button" class="btn btn-default default">折线</button>
                             </div>
                         </div>
                     </div>
