@@ -307,15 +307,10 @@ html {
 
 .show_search  li .search_right {
     padding: 0 100px 0 112px;
-    /*overflow: hidden;*/
-    height:36px;
-    line-height:36px;
-}
-
-.search_hide{
     overflow: hidden;
+    height: 36px;
+    line-height: 36px;
 }
-
 
 #search li .search_end{
     position:absolute;

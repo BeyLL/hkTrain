@@ -117,22 +117,21 @@ var field = [
     "是否独生",
 ];
 /*------------------筛选查询--------------------*/
-
+//
 var $more = $("#search .search_end");
-$more.click(function(){
+var query = false;
+$more.click(function () {
     $this = $(this);
-    console.log($this.siblings('.search_right'));
-    $
+    if (!query) {
+        $this.parent().children(".search_right").css("overflow", "visible");
+        query = true;
+    } else {
+        $this.parent().children(".search_right").css("overflow", "hidden");
+        query = !query;
+    }
 });
 
-
-
-
-
-
-
-
-
+/*-----------        -----------*/
 $("#chart").attr("display", "none");
 //全选功能
 function allcheck() {
@@ -180,7 +179,7 @@ var pageSum;
 var pagesize = 10;
 //获取人员
 function getUserList(firstId, secondId) {
-
+    console.log(firstId);
     if (!firstId) {
         firstId = readData("USER_KEY").id
     }
@@ -619,12 +618,12 @@ $btns.click(function () {
 //echarts图表的切换，折线图、饼状图、柱状图。
 var text = '性别';
 console.log(obj);
-if(obj.role_id==1){
+if (obj.role_id == 1) {
     echart("sex");
-}else if(obj.role_id==2){
-    echart("sex",obj.id)
-}else if(obj.role_id==3){
-    echart("sex",undefined,obj.id)
+} else if (obj.role_id == 2) {
+    echart("sex", obj.id)
+} else if (obj.role_id == 3) {
+    echart("sex", undefined, obj.id)
 }
 
 var $fie = $("#field");
@@ -634,17 +633,17 @@ $fie.change(function () {
     dataMo = $op.val();
     text = $op.text(); //逻辑应该是如果选中了一级单位，那么我这个就从一级单位中查询
     echart(dataMo)
-  // switch(cli){
-  //     case 0:
-  //         echart(dataMo);
-  //         break;
-  //     case 1:
-  //         echart(dataMo,parseFloat(first));
-  //         break;
-  //     case 2:
-  //         echart(dataMo,undefined,parseFloat(second));
-  //         break;
-  // }
+    // switch(cli){
+    //     case 0:
+    //         echart(dataMo);
+    //         break;
+    //     case 1:
+    //         echart(dataMo,parseFloat(first));
+    //         break;
+    //     case 2:
+    //         echart(dataMo,undefined,parseFloat(second));
+    //         break;
+    // }
 })
 
 //获取图表字段

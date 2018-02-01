@@ -17,7 +17,39 @@ $hi.before($("<div></div>").html("hi," + user).css({
 
 var $oli;
 var bt;
-//登录
+
+//获取所有的单位
+getAllList()
+var $
+function getAllList(){
+    $.ajax({
+        url:"/getAllUnit",
+        type:"POST",
+        success:function(res){
+            if(res.code==0){
+                var data = res.row;
+                var $right = $("#search .search_first .search_right");
+                var $rig  = $("#search .search_second .search_right");
+                for(var i=0;i<data.length;i++){
+                    if(data[i].pid==1){
+                        $right.append($("<span></span>").append(data[i].name+""));
+                    }else if(data[i].pid==2){
+                        $rig.append($("<span></span>").append(data[i].name+""));
+                    }
+                }
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
+//登录人信息
 function getrole() {
     var data = {};
     data.user = readData("USER_KEY").name;
@@ -35,7 +67,6 @@ function getrole() {
             console.log(data);
             if (data.code == 0) {
                 var res = data.row[0];
-                console.log(res);
                 getFirstUnit(res.id)
             } else {
                 win.alert("提示", data.msg);
@@ -55,8 +86,9 @@ var first;
 var sec;
 var bt = true;
 var cli = 0;
-//获取一级单位
 
+
+//获取一级单
 function getFirstUnit(id) {
     var data = {
         user: user,
@@ -69,12 +101,14 @@ function getFirstUnit(id) {
         data: data,
         success: function (result) {
             //获取到的真实数据
-            console.log(result);
             var res = result.row;
             if (res.length > 0) {
                 for (var i = 0; i < res.length; i++) {
                     $ul.append($("<li></li>").addClass("" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
                 }
+
+
+
 
                 var $lis = $("#stair li");
                 $lis.click(function () {
@@ -83,12 +117,10 @@ function getFirstUnit(id) {
                     $(".detail .detail_left #secondary span").first().html("二级单位");
                     first = $this.attr("class");
                     pageNow = 1;
-                    // getUserList( parseFloat(obj));
-                    // getSubUnit(parseFloat(obj))
                     cli = 1;
                     var connect = window.location.href;
                     if (connect.indexOf('person.html') != -1) {
-                        getUserList(parseFloat(first));  //人员管理中获取人员列表
+                        getUserList(parseFloat(first));  //  人员管理中获取人员列表
                         getSubUnit(parseFloat(first));   //  获得第三级单位  站或连
                         echart(undefined, parseFloat(first))   //图表切换，选取一级单位
 
@@ -127,6 +159,7 @@ function getSubUnit(id) {
             if (res.length > 0) {
                 for (var i = 0; i < res.length; i++) {
                     $ul1.append($("<li></li>").attr("class", "" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
+
                 }
                 var $lis = $("#second li");
                 $lis.click(function () {
