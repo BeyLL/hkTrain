@@ -11,7 +11,7 @@ $hi.before($("<div></div>").html("hi,"+user).css({"position":"absolute","right":
 
 var $oli;
 var bt;
-//登录的是谁，我获取的就是谁
+//登录
 function getrole() {
     var data = {};
     data.user = readData("USER_KEY").name;
@@ -232,12 +232,3 @@ $lis.click(function () {
     $this.addClass("active").siblings().removeClass("active")
 });
 
-
-//左侧导航栏默认样式的切换
-
-// var $choice = $(".introduce .nav li a");
-// $choice.splice(0, 1);
-// $choice.click(function () {
-//     $this = $(this);
-//     // $this.addClass("pitch").parents().child().removeClass("pitch")
-// });

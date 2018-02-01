@@ -270,8 +270,6 @@ exports.data_add_modify = function(tbName,fieldArr,dataArr,filed,id,callback){
  * function(callback)    回调函数
  *********************************************/
 exports.select_data_chart = function (tb_name,data,filed,reson,fileds,datas,callback) {
-    console.log(reson)
-    console.log(datas)
     data = data?data:"*";
     if(reson ==-1 &&datas ==-1){
         console.log(1);
@@ -290,7 +288,6 @@ exports.select_data_chart = function (tb_name,data,filed,reson,fileds,datas,call
         var sqlStrs = "SELECT "+data+ " , count(1) AS counts FROM "+tb_name+" where "+ fileds+" = ? GROUP BY "+data;
         var dataArr = [datas];
     }
-    console.log(sqlStrs);
     db.insert(dataArr,sqlStrs,function(err,datas){
         if(err === 0){
             callback(0,datas);

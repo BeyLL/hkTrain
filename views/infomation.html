@@ -200,7 +200,7 @@
                             </div>
                         </div>
                         <div class="design">
-                            <ul class="nav nav-tabs">
+                            <ul class="nav nav-tabs" style="display:block">
                                 <li role="presentation" class="active"><a href="#">信息分发</a></li>
                                 <li role="presentation"><a href="#">信息接收</a></li>
                             </ul>
@@ -208,11 +208,36 @@
                                 <span onclick="attr()" style="cursor: pointer;" class="label label-primary">添加</span>
                                 <span onclick="delAll()" style="cursor: pointer;" class="label label-primary">批量删除</span>
                             </div>
+                            <div class="but normal">
+                                <span  style="cursor: pointer;" class="label label-primary">接收</span>
+                                <span  style="cursor: pointer;" class="label label-primary">批量删除</span>
+                            </div>
                         </div>
                         <div class="personList perRecord">
                             <div style="overflow-x: auto;">
-                                <table class="table table-bordered " id="infomation">
+                                <table class="table table-bordered" id="infomation">
                                    
+
+                                </table>
+                                <div style="float:right;padding:100px 30px" >
+                                    <p>
+                                        <button onclick="first()" class="btn btn-primary btn-sm" id="sys">第一页</button>
+                                        <button onclick="prevpage()" class="btn btn-primary btn-sm" id="syys">上一页</button>
+                                        <button onclick="nextpage()" class="btn btn-primary btn-sm" id="xyys">下一页</button>
+                                        <button onclick="last()" class="btn btn-primary btn-sm" id="mys">最后一页</button>
+                                        共<span id="tiaoshu"></span>
+                                        </select>条,
+                                        第<span id="pageNum"></span>页
+                                        <input style="width: 50px;" id="tys" value="" />
+                                        <button onclick="selectByPage()" id="tzs" class="btn btn-primary btn-sm">确定</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="personList">
+                            <div style="overflow-x: auto;">
+                                <table class="table table-bordered " id="info">
+
 
                                 </table>
                                 <div style="float:right;padding:100px 30px" id="div2">
@@ -238,6 +263,7 @@
 </div>
 </body>
 <script type="text/javascript" src="assets/js/public.js"></script>
+<script type="text/javascript" src="assets/js/information.js"></script>
 <script>
     function attr(){
         $('.box').css('display','block');

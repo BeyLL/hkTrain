@@ -51,7 +51,6 @@ exports.pageWay = function (req,res,next) {
 exports.diplay_chart = function (req,res,next) {
     res.setHeader("Access-Control-Allow-Origin","*");
     var body = req.body;
-    console.log(body);
     var user = body.user||-1;
     var token =body.token||-1;
     try{

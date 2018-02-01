@@ -537,8 +537,9 @@ $query.click(function () {
 
 })
 
+//person页中的下拉搜索
 
-var $na = $("#search .national");
+var $na = $("#search .national .search_right");
 for (var i = 0; i < nations.length; i++) {
     $na.append($("<span></span>").html("" + nations[i]))
 }
@@ -548,7 +549,7 @@ for (var i = 0; i < education.length; i++) {
     $ed.append($("<span></span>").html("" + education[i]))
 }
 
-var $pro = $("#search .province ");
+var $pro = $("#search .province .search_right");
 for (var i = 0; i < province.length; i++) {
     $pro.append($("<span></span>").html("" + province[i]))
 }

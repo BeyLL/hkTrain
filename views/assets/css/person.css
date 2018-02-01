@@ -132,6 +132,11 @@ html {
     height: 100%;
 }
 
+.container .header_list .detail_left .btn-group{
+    display:inline-block;
+    margin-left:30px;
+}
+
 .container .detail_left .choice {
     margin-bottom: 0;
     height: 41px;
@@ -214,6 +219,10 @@ html {
     /*float:right;*/
 }
 
+.footer_content .design .normal{
+    display:none
+}
+
 .footer_content .design .but span {
     display: inline-block;
     width: 75px;
@@ -281,11 +290,9 @@ html {
 }
 
 #search li {
-    padding: 10px 0;
     border-bottom: 1px dashed #c8c8cc;
-    overflow: hidden;
-    /*height: 34px;*/
-    /*line-height: 34px;*/
+    height: 34px;
+    line-height: 34px;
 }
 
 .show_search #search li div {
@@ -293,14 +300,30 @@ html {
 }
 
 .show_search #search li .search_left {
-    margin-right: 10px;
-    width: 80px;
+    margin-right:10px;
+    width:80px;
+    height:34px;
+    line-height:34px;
+    overflow: hidden;
+    white-space: nowrap;
     text-align: left;
+}
+
+.show_search #search li .search_right{
+    width:800px;
+    height:34px;
+    line-height:34px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.show_search #search li .search_right span{
+    margin-left:27px;
 }
 
 .show_search #search li span {
     display: inline-block;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 
 .pitch {
