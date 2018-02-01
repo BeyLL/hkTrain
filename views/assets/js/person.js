@@ -116,6 +116,22 @@ var field = [
     "是否单亲",
     "是否独生",
 ];
+/*------------------筛选查询--------------------*/
+
+var $more = $("#search .search_end");
+$more.click(function(){
+    $this = $(this);
+    console.log($this.siblings('.search_right'));
+    $
+});
+
+
+
+
+
+
+
+
 
 $("#chart").attr("display", "none");
 //全选功能
@@ -616,9 +632,19 @@ var dataMo;
 $fie.change(function () {
     $op = $("#field option:selected");
     dataMo = $op.val();
-    text = $op.text();
-    console.log(text);
+    text = $op.text(); //逻辑应该是如果选中了一级单位，那么我这个就从一级单位中查询
     echart(dataMo)
+  // switch(cli){
+  //     case 0:
+  //         echart(dataMo);
+  //         break;
+  //     case 1:
+  //         echart(dataMo,parseFloat(first));
+  //         break;
+  //     case 2:
+  //         echart(dataMo,undefined,parseFloat(second));
+  //         break;
+  // }
 })
 
 //获取图表字段

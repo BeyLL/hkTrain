@@ -21,6 +21,18 @@
 <body>
 <div id="bar"></div>
 
+<div class="topicList">
+    <h3><span>学习天地</span></h3>
+    <ul>
+        <li>1111111111</li>
+        <li>2222222222</li>
+        <li>333333333</li>
+        <li>4444444444</li>
+        <li>5555555555</li>
+        <li>6666666666</li>
+    </ul>
+</div>
+
 <select>
         <option value="贵阳">贵阳</option>
         <option value="六盘水">六盘水</option>
@@ -33,59 +45,73 @@
         <option value="毕节">毕节</option>
     </select>
 
-    <script>
-        $(function(){
-            var chart = document.getElementById('bar');
-            var echart = echarts.init(chart);
+    <!--<script>-->
+        <!--$(function(){-->
+<!--//            var chart = document.getElementById('bar');-->
+<!--//            var echart = echarts.init(chart);-->
 
-            var option = {
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['植树数量']
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                toolbox: {
-                    feature: {
-                        saveAsImage: {}
-                    }
-                },
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: true,
-                    data: ['周一','周二','周三','周四','周五','周六','周日']
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [
-                    {
-                        name:'植树数量',
-                        type:'bar',
-                        stack: '植树数量',
-                        data:[34, 12, 56, 27, 42, 87, 62]
-                    }
-                ]
-            };
+            <!--var option = {-->
+                <!--title: {-->
+                    <!--text: ''-->
+                <!--},-->
+                <!--tooltip: {-->
+                    <!--trigger: 'axis'-->
+                <!--},-->
+                <!--legend: {-->
+                    <!--data:['植树数量']-->
+                <!--},-->
+                <!--grid: {-->
+                    <!--left: '3%',-->
+                    <!--right: '4%',-->
+                    <!--bottom: '3%',-->
+                    <!--containLabel: true-->
+                <!--},-->
+                <!--toolbox: {-->
+                    <!--feature: {-->
+                        <!--saveAsImage: {}-->
+                    <!--}-->
+                <!--},-->
+                <!--xAxis: {-->
+                    <!--type: 'category',-->
+                    <!--boundaryGap: true,-->
+                    <!--data: ['周一','周二','周三','周四','周五','周六','周日']-->
+                <!--},-->
+                <!--yAxis: {-->
+                    <!--type: 'value'-->
+                <!--},-->
+                <!--series: [-->
+                    <!--{-->
+                        <!--name:'植树数量',-->
+                        <!--type:'bar',-->
+                        <!--stack: '植树数量',-->
+                        <!--data:[34, 12, 56, 27, 42, 87, 62]-->
+                    <!--}-->
+                <!--]-->
+            <!--};-->
 
-            echart.setOption(option);
-        });
-    </script>
+            <!--echart.setOption(option);-->
+        <!--});-->
+    <!--</script>-->
 
 <script>
     var obj = {};
     obj.name = 'zhang';
     obj.value = '2'
     console.log(obj)
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        $(".topicList h3").click(function(){
+            var UL = $(this).next("ul");
+            if(UL.css("display")=="none"){
+                UL.css("display","block");
+            }
+            else{
+                UL.css("display","none");
+            }
+        });
+    });
 </script>
 </body>
 </html>

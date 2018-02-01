@@ -7,7 +7,13 @@ var token = obj.token;
 
 
 var $hi = $(".header");
-$hi.before($("<div></div>").html("hi,"+user).css({"position":"absolute","right":"60px","top":"21px","color":"#fff","font-size":"18px"}));
+$hi.before($("<div></div>").html("hi," + user).css({
+    "position": "absolute",
+    "right": "60px",
+    "top": "21px",
+    "color": "#fff",
+    "font-size": "18px"
+}));
 
 var $oli;
 var bt;
@@ -29,6 +35,7 @@ function getrole() {
             console.log(data);
             if (data.code == 0) {
                 var res = data.row[0];
+                console.log(res);
                 getFirstUnit(res.id)
             } else {
                 win.alert("提示", data.msg);
@@ -47,6 +54,7 @@ var id;
 var first;
 var sec;
 var bt = true;
+var cli = 0;
 //获取一级单位
 
 function getFirstUnit(id) {
@@ -63,7 +71,7 @@ function getFirstUnit(id) {
             //获取到的真实数据
             console.log(result);
             var res = result.row;
-            if(res.length>0){
+            if (res.length > 0) {
                 for (var i = 0; i < res.length; i++) {
                     $ul.append($("<li></li>").addClass("" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
                 }
@@ -77,20 +85,21 @@ function getFirstUnit(id) {
                     pageNow = 1;
                     // getUserList( parseFloat(obj));
                     // getSubUnit(parseFloat(obj))
+                    cli = 1;
                     var connect = window.location.href;
-                    if(connect.indexOf('person.html')!=-1){
-                        getUserList( parseFloat(first));
-                        getSubUnit(parseFloat(first))
-                        echart(undefined,parseFloat(first))
+                    if (connect.indexOf('person.html') != -1) {
+                        getUserList(parseFloat(first));  //人员管理中获取人员列表
+                        getSubUnit(parseFloat(first));   //  获得第三级单位  站或连
+                        echart(undefined, parseFloat(first))   //图表切换，选取一级单位
 
-                    }else if(connect.indexOf('score.html')!=-1){
+                    } else if (connect.indexOf('score.html') != -1) {
                         bt = false;
                         getSroreList(parseFloat(first));
                         getSubUnit(parseFloat(first))
                     }
                 })
-            }else{
-                    $("#top span").first().html("一级单位")
+            } else {
+                $("#top span").first().html("一级单位")
             }
 
         }
@@ -115,23 +124,24 @@ function getSubUnit(id) {
             //获取到的真实数据
             console.log(result);
             var res = result.row;
-            if(res.length>0){
+            if (res.length > 0) {
                 for (var i = 0; i < res.length; i++) {
-                    $ul1.append($("<li></li>").attr("class",""+res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
+                    $ul1.append($("<li></li>").attr("class", "" + res[i].id).append($("<a></a>").attr("href", "#").html("" + res[i].name)));
                 }
                 var $lis = $("#second li");
                 $lis.click(function () {
                     $this = $(this);
                     $(".detail .detail_left #secondary span").first().html($this.children().html() + "");
-                     sec = $this.attr("class");
-                     if(!bt){
-                         return;
-                     }
-                     pageNow = 1;
-                    getUserList( parseFloat(first),parseFloat(sec));
-                    echart(undefined,undefined,parseFloat(sec));
+                    sec = $this.attr("class");
+                    if (!bt) {
+                        return;
+                    }
+                    pageNow = 1;
+                    cli = 2;
+                    getUserList(parseFloat(first), parseFloat(sec));
+                    echart(undefined, undefined, parseFloat(sec));  //图表切换，获取二级单位
                 })
-            }else{
+            } else {
                 $("#secondary span").first().html("二级单位");
             }
 

@@ -136,8 +136,46 @@ exports.getPeople = function (req,res,next) {
 
                                 }
                             })
-                        }else{
-                            res.json({"code": 301, "msg": "死循环"});
+                        }else if(unit_first!=-1 && unit_second!=-1){
+                            var sql = "select * from t_person where unit_first =? and unit_second=?";
+                            if(page >= 1){
+                                page = (page - 1)*pageSize;
+                                sql += " limit " +  page + ","+pageSize
+                            }
+                            db.insert([unit_first,unit_second],sql,function (err,data) {
+                                if(err ==0){
+                                    getData.select_data("t_person",null,null,null,null,null,function (err,result) {
+                                        if(err==0){
+                                            var sqls = "select * from t_unit";
+                                            db.insert(null,sqls,function (err,date) {
+                                                if(err==0){
+                                                    for (var i = 0; i < data.length; i++) {
+                                                        for (var j = 0; j < date.length; j++) {
+                                                            if (data[i].unit_first == date[j].id) {
+                                                                data[i].unit_first = date[j].name;
+                                                            }
+                                                            if (data[i].unit_second == date[j].id) {
+                                                                data[i].unit_second = date[j].name;
+                                                            }
+                                                        }
+                                                    }
+                                                    res.json({"code": 0, "msg": "查询成功","total":result.length,"data": data,"row":row});
+                                                }else{
+                                                    console.log(err);
+                                                    res.json({"code": 300, "msg": "数据库查询错误"});
+                                                }
+                                            })
+
+                                        }else{
+                                            res.json({"code": 301, "msg": "数据库查询错误"});
+                                        }
+
+                                    })
+                                }else{
+                                    res.json({"code": 302, "msg": "数据库查询错误"});
+                                }
+                            })
+
                         }
                         // if ((unit_first == -1 && unit_second==-1)||(unit_first==1 && unit_second==-1)) {  //  查所有单位的人员
                         //     getData.select_data_orderby("t_person", dataArr, null, null, null, null, page, pageSize, function (err, data) {

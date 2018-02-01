@@ -425,6 +425,46 @@ exports.getfirstUnit = function (req,res,next) {
     }
 };
 
+/**
+ *根据pid获取上级单位
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.getupUnit = function (req,res,next) {
+    res.setHeader("Access-Control-Allow-Origin","*");
+    var body = req.body;
+    var user = body.user || -1;
+    var token = body.token || -1;
+    try{
+        var pid = body.pid|| -1;
+        if(pid ==-1){
+            pid=0;
+        }
+        if(user == -1 || token == -1 || pid ==-1){
+            res.json({"code":100,"msg":"参数错误"});
+            return;
+        }else{
+            permiss.checkMobile2Token(user,token,function (date) {
+                if(date){
+                    getData.select_data("t_unit",null,"id",pid,null,null,function (err,data) {
+                        if(err === 0){
+                            res.json({"code":0,"msg":"查询成功","row":data});
+                        }else{
+                            res.json({"code":300,"msg":"查询失败"});
+                        }
+                    })
+                }else{
+                    res.json({"code":300,"msg":"用户未登录"});
+                }
+            })
+        }
+    }catch(e){
+        console.log(e);
+        res.json({"code":200,"msg":"未知错误"});
+    }
+};
+
 
 /**
  * 增加修改单位

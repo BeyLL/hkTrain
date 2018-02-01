@@ -108,6 +108,7 @@ router.post('/db_restore',systemSet.db_restore);                  //数据库还
 router.post('/getAllUnit',systemSet.getAllUnit);                         //获取所有单位
 router.post('/getUnit',systemSet.getUnit);                         //获取一级单位
 router.post('/getfirstUnit',systemSet.getfirstUnit);               //根据父id获取二级单位
+router.post('/getupUnit',systemSet.getupUnit);                    //根据pid获取上级单位
 router.post('/addUpdateUnit',systemSet.addUpdateUnit);             //增加修改单位
 router.post('/delUnit',systemSet.delUnit);                         //删除单位
 
